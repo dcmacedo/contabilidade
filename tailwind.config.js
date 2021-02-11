@@ -17,6 +17,9 @@ module.exports = {
       borderRadius: {
         '4xl': '2rem',
       },
+      backgroundImage: (theme) => ({
+        logo: "url('/assets/img/logo_size_480x80_invert.png')",
+      }),
     },
     fontFamily: {
       sans: ['ui-sans-serif', 'system-ui'],

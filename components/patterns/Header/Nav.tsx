@@ -3,33 +3,33 @@ import Link from 'next/link'
 
 const Nav = (): JSX.Element => {
   return (
-    <nav className="p-1 flex items-center justify-center">
+    <nav className="p-1 flex items-center justify-center shadow-lg">
       <Link href="/">
-        <a className="m-1">Home</a>
+        <a className="p-1 mx-5 hover:bg-blue-200 rounded-md">Home</a>
       </Link>{' '}
       |{' '}
       <Link href="/">
-        <a className="m-1">Cursos</a>
+        <a className="p-1 mx-5 hover:bg-blue-200 rounded-md">Cursos</a>
       </Link>{' '}
       |{' '}
       <Link href="/">
-        <a className="m-1">Videos</a>
+        <a className="p-1 mx-5 hover:bg-blue-200 rounded-md">Videos</a>
       </Link>{' '}
       |{' '}
       <Link href="/">
-        <a className="m-1">Planilhas</a>
+        <a className="p-1 mx-5 hover:bg-blue-200 rounded-md">Planilhas</a>
       </Link>{' '}
       |{' '}
       <Link href="/">
-        <a className="m-1">Dicas e Truques</a>
+        <a className="p-1 mx-5 hover:bg-blue-200 rounded-md">Dicas e Truques</a>
       </Link>{' '}
       |{' '}
       <Link href="/about">
-        <a className="m-1">Sobre</a>
+        <a className="p-1 mx-5 hover:bg-blue-200 rounded-md">Sobre</a>
       </Link>{' '}
       |{' '}
       <Link href="/">
-        <a className="m-1">Contato</a>
+        <a className="p-1 mx-5 hover:bg-blue-200 rounded-md">Contato</a>
       </Link>{' '}
     </nav>
   )

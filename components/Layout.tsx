@@ -10,7 +10,7 @@ type Props = {
 }
 
 const Layout = ({ children, title }: Props) => (
-  <div className="bg-green-50">
+  <div className="bg-gradient-to-r from-green-100 via-white to-green-100">
     <Head title={title} />
     <Logo />
     <header className="sticky top-0">
