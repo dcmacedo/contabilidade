@@ -4,12 +4,14 @@ import Image from 'next/image'
 
 const Logo = (): JSX.Element => {
   return (
-    <div className="flex items-center justify-center h-24 p-1">
-      <Link href="/">
-        <a>
-          <Image src="/logo_size_480x80_invert.png" alt="Logo" width={480} height={80} />
-        </a>
-      </Link>
+    <div className="flex items-center justify-center">
+      <div className="bg-green-900 w-screen">
+        <Link href="/">
+          <a>
+            <Image src="/Logo_Verde_1340x280.png" alt="Logo" width={1340} height={200} />
+          </a>
+        </Link>
+      </div>
     </div>
   )
 }
