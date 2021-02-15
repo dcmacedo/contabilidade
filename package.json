@@ -8,6 +8,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@types/gtag.js": "0.0.4",
     "next": "latest",
     "next-images": "^1.7.0",
     "react": "^17.0.1",
