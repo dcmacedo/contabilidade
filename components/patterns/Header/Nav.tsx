@@ -10,35 +10,51 @@ const Nav = (): JSX.Element => {
   return (
     <nav className="p-1 flex items-center justify-center shadow-lg">
       <Link href="/">
-        <a className="p-1 mx-5 hover:bg-blue-200 hover:text-black rounded-sm">Home</a>
+        <a className="p-1 mx-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:bg-blue-200 hover:text-black rounded-sm">
+          Home
+        </a>
       </Link>{' '}
       |{' '}
       <Link href={enderecos.viscari}>
-        <a className="p-1 mx-5 hover:bg-blue-200 hover:text-black rounded-sm" target="_blank">
+        <a
+          className="p-1 mx-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:bg-blue-200 hover:text-black rounded-sm"
+          target="_blank"
+        >
           Cursos
         </a>
       </Link>{' '}
       |{' '}
       <Link href={enderecos.canal}>
-        <a className="p-1 mx-5 hover:bg-blue-200 hover:text-black rounded-sm" target="_blank">
+        <a
+          className="p-1 mx-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:bg-blue-200 hover:text-black rounded-sm"
+          target="_blank"
+        >
           Videos
         </a>
       </Link>{' '}
       |{' '}
-      <Link href="/planilhas">
-        <a className="p-1 mx-5 hover:bg-blue-200 hover:text-black rounded-sm">Planilhas</a>
+      <Link href="/">
+        <a className="p-1 mx-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:bg-blue-200 hover:text-black rounded-sm">
+          Planilhas
+        </a>
       </Link>{' '}
       |{' '}
-      <Link href="/dicas">
-        <a className="p-1 mx-5 hover:bg-blue-200 hover:text-black rounded-sm">Dicas e Truques</a>
+      <Link href="/">
+        <a className="p-1 mx-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:bg-blue-200 hover:text-black rounded-sm">
+          Dicas e Truques
+        </a>
       </Link>{' '}
       |{' '}
       <Link href="/about">
-        <a className="p-1 mx-5 hover:bg-blue-200 hover:text-black rounded-sm">Sobre</a>
+        <a className="p-1 mx-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:bg-blue-200 hover:text-black rounded-sm">
+          Sobre
+        </a>
       </Link>{' '}
       |{' '}
-      <Link href="/contato">
-        <a className="p-1 mx-5 hover:bg-blue-200 hover:text-black rounded-sm">Contato</a>
+      <Link href="/">
+        <a className="p-1 mx-5 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110 hover:bg-blue-200 hover:text-black rounded-sm">
+          Contato
+        </a>
       </Link>{' '}
     </nav>
   )
