@@ -3,9 +3,9 @@ import React from 'react'
 
 const Footer = (): JSX.Element => {
   return (
-    <footer className="flex items-center justify-end p-1 bg-green-900 text-gray-50 fixed bottom-0 w-screen">
+    <footer className="flex justify-center bottom-0 p-1 text-green-900 font-semibold">
       <Link href="https://github.com/dcmacedo">
-        <a className="px-6 text-sm" target="_blank">
+        <a className="text-xs sm:text-sm bottom-0 p-2" target="_blank">
           Desenvolvido por Danilo C. Macedo
         </a>
       </Link>

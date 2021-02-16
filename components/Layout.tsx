@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react'
 import Head from './foundation/Head'
-import Footer from './patterns/Footer'
-import Header from './patterns/Header/Main'
-import Logo from './patterns/Logo'
+import Logo from './patterns/Header/Logo'
+import Nav from './patterns/Header/Nav'
+import Footer from './patterns/Footer/Main'
 
 type Props = {
   children?: ReactNode
@@ -13,9 +13,7 @@ const Layout = ({ children, title }: Props) => (
   <div>
     <Head title={title} />
     <Logo />
-    <header className="sticky top-0">
-      <Header />
-    </header>
+    <Nav />
     {children}
     <Footer />
   </div>

@@ -2,8 +2,8 @@ import Layout from '../components/Layout'
 
 const IndexPage = () => (
   <Layout title="Contabilidade e Excel">
-    <div className="flex items-center justify-center p-1 mr-8">
-      <h1 className="my-20 p-2 text-center text-5xl text-green-900">
+    <div className="p-1 mt-0 w-screen h-screen md:mt-3">
+      <h1 className="text-xl text-center text-green-900">
         <strong>
           Seja <br />
           Bem Vindo!
