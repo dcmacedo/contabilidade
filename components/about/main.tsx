@@ -5,14 +5,22 @@ import Objetivo from './objetivo'
 
 const AboutContent = (): JSX.Element => {
   return (
-    <>
-      <Header />
-      <div className="container mx-auto mt-2 mb-4 flex items-start justify-start">
-        <Objetivo />
-        <Metodologia />
-        <Aplicacao />
+    <main className="content">
+      <div className="about">
+        <div className="header_about">
+          <Header />
+        </div>
+        <div className="objetivo">
+          <Objetivo />
+        </div>
+        <div className="metodologia">
+          <Metodologia />
+        </div>
+        <div className="aplicacao">
+          <Aplicacao />
+        </div>
       </div>
-    </>
+    </main>
   )
 }
 
