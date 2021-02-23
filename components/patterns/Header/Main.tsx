@@ -17,7 +17,7 @@ const Header = ({ title, subtitle }: Props): JSX.Element => {
             <Image src="/youtube.png" alt="YouTube" width={25} height={25} />
           </a>
         </Link>{' '}
-        <Link href="http://bit.ly/FBContabilidadeExcel​">
+        <Link href="http://bit.ly/FBContabExcel​">
           <a className="facebook" target="_blank">
             <Image src="/facebook.png" alt="Facebook" width={25} height={25} />
           </a>

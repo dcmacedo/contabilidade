@@ -15,12 +15,12 @@ const IndexPage = () => (
           <strong>Escolha uma opção:</strong>
         </h2>
         <section className="planilhas">
-          <Link href="/">
+          <Link href="/planilhas">
             <a>Planilhas</a>
           </Link>
         </section>
         <section className="dicas">
-          <Link href="/">
+          <Link href="/dicas">
             <a>Dicas e Truques</a>
           </Link>
         </section>

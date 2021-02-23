@@ -1,11 +1,10 @@
+import Contato from '../components/contato/main'
 import Layout from '../components/Layout'
 
-const PagePlanilhas = () => (
+const PageContato = () => (
   <Layout title="Contato | Contabilidade e Excel">
-    <div>
-      <p>Contato</p>
-    </div>
+    <Contato />
   </Layout>
 )
 
-export default PagePlanilhas
+export default PageContato

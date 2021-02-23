@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 
-
 const Nav = (): JSX.Element => {
   return (
     <aside className="menu-area">
@@ -9,11 +8,23 @@ const Nav = (): JSX.Element => {
         <div>
           <Link href="/">
             <a>Home</a>
-          </Link>{' '}          
+          </Link>{' '}
+          <Link href="/planilhas">
+            <a>Planilhas</a>
+          </Link>{' '}
+          <Link href="/dicas">
+            <a>Dicas e Truques</a>
+          </Link>{' '}
+          <Link href="/">
+            <a>Cursos</a>
+          </Link>{' '}
+          <Link href="/">
+            <a>Videos</a>
+          </Link>{' '}
           <Link href="/about">
             <a>Sobre</a>
           </Link>{' '}
-          <Link href="/">
+          <Link href="/contato">
             <a>Contato</a>
           </Link>{' '}
         </div>

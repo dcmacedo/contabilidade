@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@types/gtag.js": "0.0.4",
+    "keen-slider": "^5.4.0",
     "next": "latest",
     "next-images": "^1.7.0",
     "react": "^17.0.1",

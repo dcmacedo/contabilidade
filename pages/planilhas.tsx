@@ -1,10 +1,9 @@
 import Layout from '../components/Layout'
+import PlanContent from '../components/planilhas/main'
 
 const PagePlanilhas = () => (
   <Layout title="Planilhas | Contabilidade e Excel">
-    <div>
-      <p>Em Construção</p>
-    </div>
+    <PlanContent />
   </Layout>
 )
 
