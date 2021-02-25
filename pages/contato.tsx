@@ -1,9 +1,9 @@
-import Contato from '../components/contato/main'
-import Layout from '../components/Layout'
+import ContatoPage from '../components/pages/contato/main'
+import Layout from '../components/layout/Layout'
 
 const PageContato = () => (
   <Layout title="Contato | Contabilidade e Excel">
-    <Contato />
+    <ContatoPage />
   </Layout>
 )
 

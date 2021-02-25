@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import { enderecos } from '../../../utils/enderecos'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Nav = (): JSX.Element => {
   return (
@@ -7,25 +9,44 @@ const Nav = (): JSX.Element => {
       <nav className="menu">
         <div>
           <Link href="/">
-            <a>Home</a>
+            <a>
+              <FontAwesomeIcon icon="home" width="1em" /> Home
+            </a>
           </Link>{' '}
           <Link href="/planilhas">
-            <a>Planilhas</a>
+            <a>
+              {' '}
+              <FontAwesomeIcon icon="file-excel" width="1em" /> Planilhas
+            </a>
           </Link>{' '}
           <Link href="/dicas">
-            <a>Dicas e Truques</a>
+            <a>
+              {' '}
+              <FontAwesomeIcon icon="bolt" width="1em" /> Dicas e Truques
+            </a>
           </Link>{' '}
-          <Link href="/">
-            <a>Cursos</a>
+          <Link href="/cursos">
+            <a>
+              {' '}
+              <FontAwesomeIcon icon="book-open" width="1em" /> Cursos
+            </a>
           </Link>{' '}
-          <Link href="/">
-            <a>Videos</a>
+          <Link href={enderecos.canal}>
+            <a target="_blank">
+              {' '}
+              <FontAwesomeIcon icon="video" width="1em" /> Videos
+            </a>
           </Link>{' '}
           <Link href="/about">
-            <a>Sobre</a>
+            <a>
+              <FontAwesomeIcon icon="id-badge" width="1em" /> Sobre
+            </a>
           </Link>{' '}
           <Link href="/contato">
-            <a>Contato</a>
+            <a>
+              {' '}
+              <FontAwesomeIcon icon="headphones" width="1em" /> Contato
+            </a>
           </Link>{' '}
         </div>
       </nav>

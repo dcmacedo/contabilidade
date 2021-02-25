@@ -1,11 +1,8 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import React from 'react'
-import Layout from '../components/Layout'
-
-const enderecos = {
-  viscari: 'https://www.viscari.com.br/power-bi-expert-5?ref=D46938188L',
-  canal: 'https://www.youtube.com/channel/UCCpOwI4cOpGyP_OmWjo243g',
-}
+import Layout from '../components/layout/Layout'
+import { enderecos } from '../utils/enderecos'
 
 const IndexPage = () => (
   <Layout title="Contabilidade e Excel" subtitle=":) Bem Vindo!">
@@ -16,22 +13,34 @@ const IndexPage = () => (
         </h2>
         <section className="planilhas">
           <Link href="/planilhas">
-            <a>Planilhas</a>
+            <a>
+              {' '}
+              <FontAwesomeIcon icon="file-excel" width="1em" /> Planilhas
+            </a>
           </Link>
         </section>
         <section className="dicas">
           <Link href="/dicas">
-            <a>Dicas e Truques</a>
+            <a>
+              {' '}
+              <FontAwesomeIcon icon="bolt" width="1em" /> Dicas e Truques
+            </a>
           </Link>
         </section>
         <section className="cursos">
-          <Link href={enderecos.viscari}>
-            <a target="_blank">Cursos</a>
+          <Link href="/cursos">
+            <a>
+              {' '}
+              <FontAwesomeIcon icon="book-open" width="1em" /> Cursos
+            </a>
           </Link>
         </section>
         <section className="videos">
           <Link href={enderecos.canal}>
-            <a target="_blank">Videos</a>
+            <a target="_blank">
+              {' '}
+              <FontAwesomeIcon icon="video" width="1em" /> Videos
+            </a>
           </Link>
         </section>
       </div>

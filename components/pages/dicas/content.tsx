@@ -1,6 +1,7 @@
 import React from 'react'
 import { useKeenSlider } from 'keen-slider/react'
 import 'keen-slider/keen-slider.min.css'
+import Image from 'next/image'
 
 function ArrowLeft(props: any) {
   const disabeld = props.disabled ? ' arrow--disabled' : ''
@@ -48,20 +49,34 @@ const Dicas_Content = (): JSX.Element => {
         <div ref={sliderRef} className="keen-slider">
           <div className="keen-slider__slide number-slide1">
             <article>
-              <h3> Ctrl + </h3>
-              <p>Use para incluir linhas ou colunas e para deslocar células para direita ou para baixo</p>
+              <Image src="/Dicas e Truques - CTRL+ CTRL-.png" alt="CTRL +" width={300} height={300} />
             </article>
           </div>
           <div className="keen-slider__slide number-slide2">
             <article>
-              <h3> Ctrl - </h3>
-              <p>Use para excluir linhas ou colunas e para deslocar células para esquerda ou para cima</p>
+              <Image src="/Dicas e Truques - CTRL+N CTRL+2.png" alt="CTRL+N ou CTRL+2" width={300} height={300} />
             </article>
           </div>
-          <div className="keen-slider__slide number-slide3"></div>
-          <div className="keen-slider__slide number-slide4"></div>
-          <div className="keen-slider__slide number-slide5"></div>
-          <div className="keen-slider__slide number-slide6"></div>
+          <div className="keen-slider__slide number-slide3">
+            <article>
+              <Image src="/Dicas e Truques - CTRL+I CTRL+3.png" alt="CTRL+I ou CTRL+3" width={300} height={300} />
+            </article>
+          </div>
+          <div className="keen-slider__slide number-slide4">
+            <article>
+              <Image src="/Dicas e Truques - CTRL+S CTRL+4.png" alt="CTRL+S ou CTRL+4" width={300} height={300} />
+            </article>
+          </div>
+          <div className="keen-slider__slide number-slide5">
+            <article>
+              <Image src="/Dicas e Truques - CTRL+W CTRL+A.png" alt="CTRL+W e CTRL+A" width={300} height={300} />
+            </article>
+          </div>
+          <div className="keen-slider__slide number-slide6">
+            <article>
+              <Image src="/Dicas e Truques - CTRL+O ALT+F4.png" alt="CTRL+O e ALT+F4" width={300} height={300} />
+            </article>
+          </div>
         </div>
         {slider && (
           <>

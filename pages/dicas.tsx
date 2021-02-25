@@ -1,5 +1,5 @@
-import Dicas from '../components/dicas/main'
-import Layout from '../components/Layout'
+import Dicas from '../components/pages/dicas/main'
+import Layout from '../components/layout/Layout'
 
 const PageDicas = () => (
   <Layout title="Dicas e Truques | Contabilidade e Excel">

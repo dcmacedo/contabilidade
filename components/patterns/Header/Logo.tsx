@@ -7,7 +7,7 @@ const Logo = (): JSX.Element => {
     <aside className="logo">
       <Link href="/">
         <a>
-          <Image src="/Logo_Verde_600x280.png" alt="Logo" width={386} height={180} />
+          <Image src="/Logo_Verde_600x280.png" alt="Logo" layout="responsive" width={386} height={180} />
         </a>
       </Link>
     </aside>
