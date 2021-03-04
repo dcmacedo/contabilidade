@@ -12,7 +12,7 @@ const ContatoPage = (): JSX.Element => {
         </div>
         <div className="contato_content">
           <LayoutContentPages>
-            <form>
+            {/* <form>
               <h2>Preencha para entrar na Lista</h2>
 
               <div className="input">
@@ -28,7 +28,8 @@ const ContatoPage = (): JSX.Element => {
               </div>
 
               <button type="submit">Enviar</button>
-            </form>
+            </form> */}
+            <h2>Página de Contatos</h2>
           </LayoutContentPages>
         </div>
       </div>
