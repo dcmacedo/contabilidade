@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
 import Layout from '../components/layout/Layout'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { enderecos } from '../utils/enderecos'
 
 const IndexPage = () => (

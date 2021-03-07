@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import { GTMPageView } from '../utils/gtm'
-import '../assets/styles.css'
+import '../styles/styles.css'
 
 // Importing types from the API library along with other exports
 import { library } from '@fortawesome/fontawesome-svg-core'
