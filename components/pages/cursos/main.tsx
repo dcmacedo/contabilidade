@@ -1,5 +1,9 @@
+import React from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 import LayoutHeaderPages from '../../layout/LayoutHeaderPages'
 import LayoutContentPages from '../../layout/LayoutContentPages'
+import { enderecos } from '../../../utils/enderecos'
 
 const CursosPage = (): JSX.Element => {
   return (
@@ -7,16 +11,26 @@ const CursosPage = (): JSX.Element => {
       <div className="cursos_page">
         <div className="cursos_header">
           <LayoutHeaderPages>
-            <h2>Cursos</h2>
+            <h2>Painel de Cursos</h2>
           </LayoutHeaderPages>
         </div>
         <div className="cursos_content">
           <LayoutContentPages>
-            <article>
-              <h3>Conteúdo de Cursos (em Construção)</h3>
-              <p>Neste espaço você terá acesso à diversos cursos para alavancar sua vida profissional.</p>
-              <p>Em breve!!!</p>
-            </article>
+            <Link href={enderecos.viscari}>
+              <a className="viscari">
+                <Image src="/2-00.fw.png" alt="CURSO POWER BI" width={400} height={400} />
+              </a>
+            </Link>{' '}
+            <Link href={enderecos.curso_auxadm}>
+              <a className="curso_auxadm">
+                <Image
+                  src="/CRIATIVOS-CURSO-ADM-02Prancheta-1-copiar-2.png"
+                  alt="CURSO AUX. ADM."
+                  width={400}
+                  height={400}
+                />
+              </a>
+            </Link>{' '}
           </LayoutContentPages>
         </div>
       </div>

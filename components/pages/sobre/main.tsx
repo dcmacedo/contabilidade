@@ -39,7 +39,7 @@ const AboutContent = (): JSX.Element => {
               Serão apresentados conteúdos práticos ministrados através de dicas e tutoriais em{' '}
               <strong>
                 <Link href={enderecos.canal}>
-                  <a className="metod_videos">videos</a>
+                  <a className="metod_videos">vídeos</a>
                 </Link>{' '}
               </strong>
               envolvendo esta fascinante ferramenta, o Excel, e o mundo da contabilidade.
