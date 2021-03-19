@@ -26,7 +26,7 @@ export default class MyDocument extends Document {
           />
           {/* End Google Tag Manager (noscript) */}
 
-          <script data-ad-client="ca-pub-2058536501756920" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
+          <script data-ad-client="ca-pub-9908384674925546" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
         </Head>
         <body>
           <Main />
