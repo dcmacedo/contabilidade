@@ -13,8 +13,8 @@ const Nav = (): JSX.Element => {
               <FontAwesomeIcon icon="home" width="1em" /> Home
             </a>
           </Link>{' '}
-          <Link href="/planilhas">
-            <a>
+          <Link href={enderecos.planilhas}>
+            <a target="_blank">
               {' '}
               <FontAwesomeIcon icon="file-excel" width="1em" /> Planilhas
             </a>
@@ -45,7 +45,7 @@ const Nav = (): JSX.Element => {
           <Link href="/contato">
             <a>
               {' '}
-              <FontAwesomeIcon icon="headphones" width="1em" /> Contato
+              <FontAwesomeIcon icon="address-card" width="1em" /> Contato
             </a>
           </Link>{' '}
         </div>

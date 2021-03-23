@@ -6,10 +6,12 @@ export const enderecos = {
   instagram: 'https://www.instagram.com/contabilidadeexcel',
   twitter: 'https://twitter.com/ContabilidadeE4',
   viscari: 'https://www.viscari.com.br/power-bi-expert?ref=D46938188L',
-  curso_auxadm:
-    'https://jovemempreendedor.org/pagina.php?pixelFace=2852196435109243&pixelGoogle=&whatsapp=&link=https://jovemempreendedor.org/auxiliaradministrativo',
-  // https://jovemempreendedor.org/auxiliaradministrativo/?ref=H46938331V
-  curso_analistaqualidade:
-    'https://jovemempreendedor.org/pagina.php?pixelFace=2852196435109243&pixelGoogle=&whatsapp=&link=https://www.jovemempreendedor.org/analista-qualidade',
-  // https://www.jovemempreendedor.org/analista-qualidade/?ref=S48925901K
+  // curso_auxadm:
+  //   'https://jovemempreendedor.org/pagina.php?pixelFace=2852196435109243&pixelGoogle=&whatsapp=&link=https://jovemempreendedor.org/auxiliaradministrativo',
+  // // https://jovemempreendedor.org/auxiliaradministrativo/?ref=H46938331V
+  // curso_analistaqualidade:
+  //   'https://jovemempreendedor.org/pagina.php?pixelFace=2852196435109243&pixelGoogle=&whatsapp=&link=https://www.jovemempreendedor.org/analista-qualidade',
+  // // https://www.jovemempreendedor.org/analista-qualidade/?ref=S48925901K
+  planilhas: 'https://drive.google.com/drive/folders/1B3Gsf4horEYsQHc386FqLzVZCLLLP8Xz?usp=sharing',
+  email: 'computantis.ratio@gmail.com'
 }

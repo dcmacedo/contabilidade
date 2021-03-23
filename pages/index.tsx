@@ -12,8 +12,8 @@ const IndexPage = () => (
           <strong>Escolha uma opção:</strong>
         </h2>
         <section className="planilhas">
-          <Link href="/planilhas">
-            <a>
+          <Link href={enderecos.planilhas}>
+            <a target="_blank">
               {' '}
               <FontAwesomeIcon icon="file-excel" width="1em" /> Planilhas
             </a>

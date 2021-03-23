@@ -405,21 +405,10 @@ a.metod_videos {
   align-items: center;
 }
 
-.contato_content form {
-  display: flex;
-  flex-direction: column;
-  margin: 0px;
-  padding: 0px;
-  margin-top: 25px;
-  width: 100%;
-}
+.contato_content iframe {
+  border: #000;
+ }
 
-.contato_content form > input,
-label {
-  margin: 5px;
-  padding: 5px;
-  width: 400px;
-}
 
 [class^='number-slide'],
 [class*=' number-slide'] {
@@ -504,3 +493,4 @@ label {
 .arrow--disabled {
   fill: rgba(255, 255, 255, 0.5);
 }
+

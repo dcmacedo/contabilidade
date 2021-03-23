@@ -21,7 +21,7 @@ const CursosPage = (): JSX.Element => {
                 <Image src="/2-00.fw.png" alt="CURSO POWER BI" width={400} height={400} />
               </a>
             </Link>{' '}
-            <Link href={enderecos.curso_auxadm}>
+            {/* <Link href={enderecos.curso_auxadm}>
               <a className="curso_auxadm">
                 <Image
                   src="/CRIATIVOS-CURSO-ADM-02Prancheta-1-copiar-2.png"
@@ -30,7 +30,7 @@ const CursosPage = (): JSX.Element => {
                   height={400}
                 />
               </a>
-            </Link>{' '}
+            </Link>{' '} */}
           </LayoutContentPages>
         </div>
       </div>

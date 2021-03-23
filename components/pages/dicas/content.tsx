@@ -77,6 +77,31 @@ const Dicas_Content = (): JSX.Element => {
               <Image src="/Dicas e Truques - CTRL+O ALT+F4.png" alt="CTRL+O e ALT+F4" width={300} height={300} />
             </article>
           </div>
+          <div className="keen-slider__slide number-slide7">
+            <article>
+              <Image src="/Dicas e Truques Ctrl + Shift + Espaço.png" alt="Ctrl + Shift + Espaço" width={300} height={300} />
+            </article>
+          </div>
+          <div className="keen-slider__slide number-slide8">
+            <article>
+              <Image src="/Dicas e Truques CTRL + SHIFT + Page Down.png" alt="CTRL + SHIFT + Page Down" width={300} height={300} />
+            </article>
+          </div>
+          <div className="keen-slider__slide number-slide9">
+            <article>
+              <Image src="/Dicas e Truques Ctrl + Shift.png" alt="Ctrl + Shift" width={300} height={300} />
+            </article>
+          </div>
+          <div className="keen-slider__slide number-slide10">
+            <article>
+              <Image src="/Dicas e Truques Ctrl.png" alt="CTRL" width={300} height={300} />
+            </article>
+          </div>
+          <div className="keen-slider__slide number-slide11">
+            <article>
+              <Image src="/Dicas e Truques TAB SHIFT+TAB.png" alt="TAB SHIFT+TAB" width={300} height={300} />
+            </article>
+          </div>
         </div>
         {slider && (
           <>
