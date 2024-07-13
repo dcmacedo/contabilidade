@@ -1,10 +1,19 @@
-import { Routes } from '@angular/router';
+// app.routes.ts
 
-export const routes: Routes = [{ path: '', redirectTo: '/home', pathMatch: 'full' },
-{ path: 'home', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
-{ path: 'services', loadChildren: () => import('./pages/services/services.module').then(m => m.ServicesModule) },
-{ path: 'courses', loadChildren: () => import('./pages/courses/courses.module').then(m => m.CoursesModule) },
-{ path: 'members', loadChildren: () => import('./pages/members/members.module').then(m => m.MembersModule) },
-{ path: 'blog', loadChildren: () => import('./pages/blog/blog.module').then(m => m.BlogModule) },
-{ path: 'contact', loadChildren: () => import('./pages/contact/contact.module').then(m => m.ContactModule) }
+import { Routes } from '@angular/router';
+import { BlogComponent } from './pages/blog/blog.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { CoursesComponent } from './pages/courses/courses.component';
+import { HomeComponent } from './pages/home/home.component';
+import { MembersComponent } from './pages/members/members.component';
+import { ServicesComponent } from './pages/services/services.component';
+
+export const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'services', component: ServicesComponent },
+  { path: 'courses', component: CoursesComponent },
+  { path: 'members', component: MembersComponent },
+  { path: 'blog', component: BlogComponent },
+  { path: 'contact', component: ContactComponent }
 ];
