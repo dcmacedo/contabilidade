@@ -1,0 +1,61 @@
+body {
+  background-color: #f0f0f0;
+  color: #333333;
+}
+
+.navbar {
+  background-color: #003366;
+  color: white;
+  padding: 1rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-primary {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-primary:hover {
+  background-color: #002244;
+}
+
+.button-secondary {
+  background-color: #b3b3b3;
+  color: #4d4d4d;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-secondary:hover {
+  background-color: #999999;
+}
+
+a {
+  color: #003366;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

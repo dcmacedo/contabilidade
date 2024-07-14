@@ -1,18 +1,25 @@
 .navbar {
-  background-color: #333;
+  background-color: #003366; /* Azul Escuro */
   color: white;
   padding: 1rem;
+  position: fixed; /* Torna o menu fixo */
+  top: 0; /* Posiciona o menu no topo */
+  width: 100%; /* Faz o menu ocupar toda a largura da janela */
+  z-index: 1000; /* Garante que o menu fique acima de outros elementos */
 }
 
 .navbar-brand {
   font-size: 1.5rem;
   color: white;
+  text-decoration: none;
 }
 
 .navbar-nav {
   list-style-type: none;
   display: flex;
   gap: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-item {
@@ -22,8 +29,15 @@
 .nav-link {
   color: white;
   text-decoration: none;
+  font-size: 1rem;
 }
 
 .nav-link:hover {
   text-decoration: underline;
+  color: #66cc66; /* Verde Claro */
+}
+
+/* Adiciona um padding ao body para evitar que o conteúdo fique atrás do menu fixo */
+body {
+  padding-top: 4rem; /* Ajuste conforme necessário */
 }

@@ -1,0 +1,8 @@
+<div class="services-container">
+  <h1>Nossos Serviços</h1>
+  <div class="service" *ngFor="let servico of servicos">
+    <h2>{{ servico.name }}</h2>
+    <p>{{ servico.description }}</p>
+    <button class="button-primary" *ngIf="servico.ctaLink" [routerLink]="servico.ctaLink">Saiba Mais</button>
+  </div>
+</div>

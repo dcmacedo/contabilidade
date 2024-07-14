@@ -1,1 +1,8 @@
-<p>blog works!</p>
+<div class="blog-container">
+  <h1>Nosso Blog</h1>
+  <div class="blog-post" *ngFor="let post of blogPosts">
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.summary }}</p>
+    <a [routerLink]="['/blog', post.id]" class="button-primary">Leia Mais</a>
+  </div>
+</div>
