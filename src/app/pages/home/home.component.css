@@ -1,67 +1,23 @@
-.hero {
-  background-color: #003366;
+.home-container {
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+.hero-section {
+  background: url("/src/assets/hero-background.jpg") no-repeat center
+    center/cover;
   color: white;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
   text-align: center;
 }
 
 .hero-content h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
 .hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.services {
-  background-color: #ffffff;
-  color: #333333;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.services h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.service {
-  margin-bottom: 2rem;
-}
-
-.testimonials {
-  background-color: #f0f0f0;
-  color: #333333;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.testimonials h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-
-.testimonial {
-  margin-bottom: 2rem;
-  font-style: italic;
-}
-
-.cta {
-  background-color: #003366;
-  color: white;
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-.cta h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.cta p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
 }
 
@@ -69,11 +25,87 @@
   background-color: #006633;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 5px;
+  text-decoration: none;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .button-primary:hover {
   background-color: #004d26;
+}
+
+.services-section,
+.testimonials-section,
+.cta-section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.services-grid,
+.testimonials-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.service-card,
+.testimonial-card {
+  background: #f9f9f9;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.service-card h3,
+.testimonial-card p {
+  margin-bottom: 1rem;
+}
+
+.button-secondary {
+  background-color: #003366;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.button-secondary:hover {
+  background-color: #001a33;
+}
+
+.cta-section {
+  background-color: #006633;
+  color: white;
+  padding: 4rem 2rem;
+}
+
+.cta-section p {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1.25rem;
+  }
+
+  .services-grid,
+  .testimonials-grid {
+    flex-direction: column;
+  }
+
+  .service-card,
+  .testimonial-card {
+    width: 100%;
+  }
 }

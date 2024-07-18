@@ -1,45 +1,36 @@
-<div class="hero">
-  <div class="hero-content">
-    <h1>Contabilidade e Excel</h1>
-    <p>Especialistas em Contabilidade e Excel</p>
-    <button class="button-primary">Saiba Mais</button>
-  </div>
-</div>
+<div class="home-container">
+  <header class="hero-section">
+    <div class="hero-content">
+      <h1>Bem-vindo à Nossa Empresa</h1>
+      <p>Oferecemos serviços de contabilidade, cursos de Excel e elaboração de planilhas personalizados para você.</p>
+      <a class="button-primary" routerLink="/services">Conheça Nossos Serviços</a>
+    </div>
+  </header>
 
-<div class="services">
-  <h2>Nossos Serviços</h2>
-  <div class="service">
-    <h3>Contabilidade</h3>
-    <p>Oferecemos serviços contábeis completos para empresas de todos os portes.</p>
-  </div>
-  <div class="service">
-    <h3>Cursos de Excel</h3>
-    <p>Aprenda Excel do básico ao avançado com nossos cursos especializados.</p>
-  </div>
-  <div class="service">
-    <h3>Elaboração de Planilhas</h3>
-    <p>Criamos planilhas personalizadas para atender às suas necessidades empresariais.</p>
-  </div>
-</div>
+  <section class="services-section">
+    <h2>Nossos Serviços</h2>
+    <div class="services-grid">
+      <div class="service-card" *ngFor="let service of services">
+        <h3>{{ service.name }}</h3>
+        <p>{{ service.description }}</p>
+        <a class="button-secondary" [routerLink]="service.ctaLink">Saiba Mais</a>
+      </div>
+    </div>
+  </section>
 
-<div class="testimonials">
-  <h2>O que nossos clientes dizem</h2>
-  <div class="testimonial">
-    <p>"Excelente serviço, superou nossas expectativas!"</p>
-    <p>- Cliente Satisfeito</p>
-  </div>
-  <div class="testimonial">
-    <p>"Os cursos de Excel foram fundamentais para nossa equipe."</p>
-    <p>- Cliente Satisfeito</p>
-  </div>
-  <div class="testimonial">
-    <p>"Planilhas personalizadas que realmente fazem a diferença."</p>
-    <p>- Cliente Satisfeito</p>
-  </div>
-</div>
+  <section class="testimonials-section">
+    <h2>Depoimentos de Clientes</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+        <p>"{{ testimonial.feedback }}"</p>
+        <span>- {{ testimonial.client }}</span>
+      </div>
+    </div>
+  </section>
 
-<div class="cta">
-  <h2>Entre em Contato</h2>
-  <p>Estamos prontos para ajudar você a alcançar seus objetivos empresariais.</p>
-  <button class="button-primary">Contate-nos</button>
+  <section class="cta-section">
+    <h2>Pronto para Começar?</h2>
+    <p>Entre em contato conosco e descubra como podemos ajudar a sua empresa a crescer.</p>
+    <a class="button-primary" routerLink="/contact">Fale Conosco</a>
+  </section>
 </div>
