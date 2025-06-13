@@ -1,38 +1,27 @@
 {
-  "name": "with-typescript",
-  "version": "1.0.0",
+  "name": "contabilidade",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev": "next",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "lint": "next lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-brands-svg-icons": "^5.15.2",
-    "@fortawesome/free-regular-svg-icons": "^5.15.2",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "@fortawesome/react-fontawesome": "^0.1.14",
-    "@material-ui/core": "^4.11.3",
-    "@material-ui/icons": "^4.11.2",
-    "@types/gtag.js": "0.0.4",
-    "@types/react-select": "^4.0.13",
-    "@vercel/node": "^1.9.0",
-    "axios": "^0.21.1",
-    "keen-slider": "^5.4.0",
-    "next": "latest",
-    "next-images": "^1.7.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-hook-form": "^6.15.4",
-    "react-select": "^4.1.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "next": "15.3.3"
   },
   "devDependencies": {
-    "@types/node": "^12.19.16",
-    "@types/react": "^16.14.3",
-    "@types/react-dom": "^16.9.10",
-    "prettier": "2.2.1",
-    "typescript": "^4.0.6"
-  },
-  "license": "MIT"
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@tailwindcss/postcss": "^4",
+    "tailwindcss": "^4",
+    "eslint": "^9",
+    "eslint-config-next": "15.3.3",
+    "@eslint/eslintrc": "^3"
+  }
 }

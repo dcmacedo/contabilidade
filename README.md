@@ -1,25 +1,36 @@
-# YouTube para Negócios - Contabilidade e Excel
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Bem-vindo ao repositório do projeto YouTube para Negócios, associado ao canal "Contabilidade e Excel". Este projeto tem como objetivo fornecer recursos e ferramentas úteis para a comunidade interessada em contabilidade e planilhas do Excel, com conteúdos apresentados no canal do YouTube.
+## Getting Started
 
-## Sobre o Projeto
+First, run the development server:
 
-O "YouTube para Negócios" é uma iniciativa que visa compartilhar conhecimentos práticos sobre contabilidade, técnicas avançadas do Excel e dicas relevantes para empreendedores e profissionais da área financeira. Este repositório serve como um hub central para o código-fonte, recursos e materiais relacionados site ligado ao canal.
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Como Contribuir
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Se você deseja contribuir para este projeto, sinta-se à vontade para:
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-1. **Abrir Issues**: Relate problemas, faça sugestões ou solicite novos conteúdos.
-2. **Enviar Pull Requests**: Contribua com melhorias nos scripts, adicione novas planilhas ou recursos úteis.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Lembre-se de seguir as diretrizes de contribuição ao enviar Pull Requests.
+## Learn More
 
-## Links Úteis
+To learn more about Next.js, take a look at the following resources:
 
-- [Canal "Contabilidade e Excel"](https://www.youtube.com/contabilidadeexcel)
-- [Site Oficial](https://contabilidade.vercel.app/)
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Agradecemos por fazer parte da comunidade "Contabilidade e Excel"! Esperamos que este repositório seja uma fonte valiosa de recursos para aprimorar suas habilidades e conhecimentos em contabilidade e Excel.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-**Divirta-se aprendendo, assim como eu!**
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
