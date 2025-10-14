@@ -12,12 +12,14 @@ export default function GoogleAnalytics() {
 
   // Dispara page_view a cada troca de rota
   useEffect(() => {
-    if (!pathname) return;
+    if (!pathname || typeof window === "undefined" || !window.gtag) return;
+
     const url =
       window.location.origin +
       pathname +
       (searchParams?.toString() ? `?${searchParams}` : "");
-    (window as any).gtag?.("event", "page_view", {
+
+    window.gtag("event", "page_view", {
       page_location: url,
       page_path: pathname,
       page_title: document.title,
@@ -26,10 +28,12 @@ export default function GoogleAnalytics() {
 
   return (
     <>
+      {/* Loader do GA4 */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         strategy="afterInteractive"
       />
+      {/* Inicialização do GA4 sem page_view automático */}
       <Script id="ga-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
