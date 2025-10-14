@@ -1,11 +1,9 @@
 "use client";
 import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+import { trackAndGo } from "@/lib/ga";
 
-// V2 — Página de vendas com visual mais vibrante e copy otimizada
-// ✔ Next.js + Tailwind (conversion-driven)
-// ✔ Oferta de lançamento + prova social + garantias + bônus
-// ✔ SEO básico (JSON-LD inline)
+// V3 — Página de vendas com GA4 (pageview + eventos), next/image e SEO JSON-LD
 
 export default function Page() {
   // ===== Countdown for launch offer (local per visitor) =====
@@ -88,7 +86,7 @@ export default function Page() {
     { title: "Sem mensalidade", desc: "Pagamento único e uso ilimitado." },
   ];
 
-  const badges = ["Download imediato", "Pagamento Seguro Kiwify", "Sem mensalidade", "Suporte básico por e‑mail"];
+  const badges = ["Download imediato", "Pagamento Seguro Kiwify", "Sem mensalidade", "Suporte básico por e-mail"];
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-emerald-50 text-zinc-900">
@@ -133,17 +131,34 @@ export default function Page() {
               {product.tagline}
             </p>
             <ul className="mt-6 space-y-2 text-zinc-700">
-              <li className="flex gap-3"><span>✔️</span><span>Comece com um passo a passo simples, sem curva de aprendizado.</span></li>
+              <li className="flex gap-3"><span>✔️</span><span>Comece com um passo a passo simples sem curva de aprendizado.</span></li>
               <li className="flex gap-3"><span>✔️</span><span>Veja onde está o dinheiro, quais gastos pesam e como agir.</span></li>
               <li className="flex gap-3"><span>✔️</span><span>Dashboard e gráficos claros para decidir com confiança.</span></li>
             </ul>
             <div className="mt-8 flex flex-wrap items-end gap-4">
-              <a
-                href={`${product.checkout.offer}?utm_source=site&utm_medium=hero_btn&utm_campaign=launch_offer_v3`}
+              {/* CTA HERO - begin_checkout */}
+              <button
+                type="button"
+                onClick={() =>
+                  trackAndGo(
+                    `${product.checkout.offer}?utm_source=site&utm_medium=hero_btn&utm_campaign=launch_offer_v3`,
+                    "begin_checkout",
+                    {
+                      currency: "BRL",
+                      value: product.offerPrice,
+                      items: [
+                        { item_id: "pfc_avancado", item_name: product.name, quantity: 1, price: product.offerPrice },
+                      ],
+                      promotion_name: "Oferta de Lançamento",
+                      promotion_id: "launch_offer_v3",
+                      location: "hero",
+                    }
+                  )
+                }
                 className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold shadow-lg bg-gradient-to-r from-emerald-600 to-sky-600 text-white hover:opacity-90 transition"
               >
                 Garantir por R$ {product.offerPrice.toFixed(2)}
-              </a>
+              </button>
               <div className="text-sm text-zinc-600">
                 <div className="line-through">R$ {product.price.toFixed(2)}</div>
                 <div className="font-semibold">Oferta por tempo limitado</div>
@@ -157,33 +172,18 @@ export default function Page() {
             {/* <p className="mt-3 text-xs text-zinc-500">Domínio oficial: <a className="underline" href={product.domain}>{product.domain}</a></p> */}
           </div>
 
-          {/* Visual Card with real images */}
+          {/* Visual Card with real images (next/image) */}
           <div className="relative">
             <div className="rounded-2xl border bg-white shadow-xl overflow-hidden">
-              {/* HERO image optimized with next/image */}
-<Image
-  src="/Dashboard.jpg"
-  alt="Prévia do Dashboard da Planilha de Fluxo de Caixa Avançado"
-  className="w-full h-auto block"
-  width={1280}
-  height={720}
-  priority
-  sizes="(max-width: 768px) 100vw, 50vw"
-/>
-              {/* <div className="grid grid-cols-2 gap-0 border-t">
-                <img
-                  src="/MenuFluxoCaixa.jpg"
-                  alt="Tela do Menu de Opções da planilha"
-                  className="w-full h-auto block"
-                  loading="lazy"
-                />
-                <img
-                  src="/Dashboard.jpg"
-                  alt="Gráficos e indicadores do Dashboard"
-                  className="w-full h-auto hidden md:block"
-                  loading="lazy"
-                />
-              </div> */}
+              <Image
+                src="/Dashboard.jpg"
+                alt="Prévia do Dashboard da Planilha de Fluxo de Caixa Avançado"
+                className="w-full h-auto block"
+                width={1280}
+                height={720}
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </div>
         </div>
@@ -210,7 +210,24 @@ export default function Page() {
               <div className="text-lg font-semibold">{f.title}</div>
               <p className="mt-2 text-zinc-600">{f.desc}</p>
               {/* Inline preview chips */}
-              {f.title === "Dashboard" && ( <img src="/Dashboard.jpg" alt="Preview Dashboard" className="mt-4 w-full rounded-xl border" loading="lazy" /> )} {f.title === "Lançamentos" && ( <img src="/Lancamentos.jpg" alt="Preview Lançamentos" className="mt-4 w-full rounded-xl border" loading="lazy" /> )} {f.title === "Relatórios" && ( <img src="/Relatorio.jpg" alt="Preview Relatórios" className="mt-4 w-full rounded-xl border" loading="lazy" /> )} {f.title === "Menu de Opções" && ( <img src="/MenuFluxoCaixa.jpg" alt="Preview Menu" className="mt-4 w-full rounded-xl border" loading="lazy" /> )} {f.title === "Tabelas Auxiliares" && ( <img src="/TabelasAuxiliares.jpg" alt="Preview Tabelas Auxiliares" className="mt-4 w-full rounded-xl border" loading="lazy" /> )} {f.title === "Gráficos" && ( <img src="/Graficos.jpg" alt="Preview Gráficos" className="mt-4 w-full rounded-xl border" loading="lazy" /> )}
+              {f.title === "Dashboard" && (
+                <Image src="/Dashboard.jpg" alt="Preview Dashboard" className="mt-4 w-full rounded-xl border" width={1200} height={800} />
+              )}
+              {f.title === "Menu de Opções" && (
+                <Image src="/MenuFluxoCaixa.jpg" alt="Preview Menu" className="mt-4 w-full rounded-xl border" width={1200} height={800} />
+              )}
+              {f.title === "Gráficos" && (
+                <Image src="/Graficos.jpg" alt="Preview Gráficos" className="mt-4 w-full rounded-xl border" width={1200} height={800} />
+              )}
+              {f.title === "Lançamentos" && (
+                <Image src="/Lancamentos.jpg" alt="Preview Lançamentos" className="mt-4 w-full rounded-xl border" width={1200} height={800} />
+              )}
+              {f.title === "Relatórios" && (
+                <Image src="/Relatorio.jpg" alt="Preview Relatórios" className="mt-4 w-full rounded-xl border" width={1200} height={800} />
+              )}
+              {f.title === "Tabelas Auxiliares" && (
+                <Image src="/TabelasAuxiliares.jpg" alt="Preview Tabelas Auxiliares" className="mt-4 w-full rounded-xl border" width={1200} height={800} />
+              )}              
             </div>
           ))}
         </div>
@@ -219,7 +236,7 @@ export default function Page() {
       {/* Future for MEI */}
       <section className="px-5 md:px-8 lg:px-12 max-w-6xl mx-auto py-12">
         <div className="rounded-3xl border bg-gradient-to-br from-white to-emerald-50 p-8">
-          <h3 className="text-xl md:text-2xl font-extrabold">Próximas versões — foco em MEI</h3>
+          <h3 className="text-xl md:text-2xl font-extrabold">Próximas versões: Foco em MEI</h3>
           <p className="mt-2 text-zinc-700">Compre agora e receba atualizações da linha base. Recursos pensados para a rotina do MEI.</p>
           <div className="mt-6 grid md:grid-cols-3 gap-6">
             {future.map((f) => (
@@ -235,9 +252,14 @@ export default function Page() {
       {/* Testimonials */}
       <section className="px-5 md:px-8 lg:px-12 max-w-6xl mx-auto py-12 md:py-16">
         <h2 className="text-2xl md:text-3xl font-extrabold text-center">Quem já usou aprovou</h2>
-        {/* <p className="mt-2 text-center text-zinc-600">Depoimentos curtos de clientes (exemplos de placeholder — substitua pelos reais).</p> */}
         <div className="mt-8 grid md:grid-cols-3 gap-6">
-          {[ { n: "S.G.R.M.M", t: "MEI Serviços", d: "Em 2 dias já sabia onde cortar gastos. Salvou meu mês." }, { n: "I.M.M", t: "Autônomo", d: "Relatórios simples. Parei de sofrer no fim do mês." }, { n: "D.C.M", t: "Autônomo", d: "Nunca consegui manter controle, agora faço em 10 minutos." }, { n: "A.C.A", t: "MEI", d: "Fiquei muito feliz em conseguir controlar meu caixa." }, { n: "L.C", t: "Pessoa Fisica", d: "Uso como meu orçamento familiar. Muito Bom!" }, { n: "M.P", t: "MEI Serviços", d: "Agora consigo saber quanto ganho no mês." },
+          {[
+            { n: "S.G.R.M.M", t: "MEI Serviços", d: "Em 2 dias já sabia onde cortar gastos. Salvou meu mês." },
+            { n: "I.M.M", t: "Autônomo", d: "Relatórios simples. Parei de sofrer no fim do mês." },
+            { n: "D.C.M", t: "Autônomo", d: "Nunca consegui manter controle, agora faço em 10 minutos." },
+            { n: "A.C.A", t: "MEI", d: "Fiquei muito feliz em conseguir controlar meu caixa." },
+            { n: "L.C", t: "Pessoa Fisica", d: "Uso como meu orçamento familiar. Muito Bom!" },
+            { n: "M.P", t: "MEI Serviços", d: "Agora consigo saber quanto ganho no mês." },
           ].map((c) => (
             <div key={c.n} className="rounded-2xl border bg-white p-6">
               <div className="text-sm text-zinc-600">{c.t}</div>
@@ -261,12 +283,29 @@ export default function Page() {
             </div>
           </div>
           <div className="text-center md:text-right">
-            <a
-              href={`${product.checkout.offer}?utm_source=site&utm_medium=guarantee_btn&utm_campaign=launch_offer_v3`}
+            {/* CTA GARANTIA - begin_checkout */}
+            <button
+              type="button"
+              onClick={() =>
+                trackAndGo(
+                  `${product.checkout.offer}?utm_source=site&utm_medium=guarantee_btn&utm_campaign=launch_offer_v3`,
+                  "begin_checkout",
+                  {
+                    currency: "BRL",
+                    value: product.offerPrice,
+                    items: [
+                      { item_id: "pfc_avancado", item_name: product.name, quantity: 1, price: product.offerPrice },
+                    ],
+                    promotion_name: "Oferta de Lançamento",
+                    promotion_id: "launch_offer_v3",
+                    location: "guarantee",
+                  }
+                )
+              }
               className="inline-flex items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold shadow-lg bg-gradient-to-r from-emerald-600 to-sky-600 text-white hover:opacity-90 transition"
             >
               Começar agora
-            </a>
+            </button>
             <div className="mt-2 text-xs text-zinc-500">Expira em {timeLeft}</div>
           </div>
         </div>
@@ -287,12 +326,29 @@ export default function Page() {
               <li className="flex gap-3"><span>✓</span><span>Guia de início rápido</span></li>
               <li className="flex gap-3"><span>✓</span><span>Garantia 7 dias</span></li>
             </ul>
-            <a
-              href={`${product.checkout.offer}?utm_source=site&utm_medium=pricing_card&utm_campaign=launch_offer_v3`}
+            {/* CTA OFERTA - begin_checkout */}
+            <button
+              type="button"
+              onClick={() =>
+                trackAndGo(
+                  `${product.checkout.offer}?utm_source=site&utm_medium=pricing_card&utm_campaign=launch_offer_v3`,
+                  "begin_checkout",
+                  {
+                    currency: "BRL",
+                    value: product.offerPrice,
+                    items: [
+                      { item_id: "pfc_avancado", item_name: product.name, quantity: 1, price: product.offerPrice },
+                    ],
+                    promotion_name: "Oferta de Lançamento",
+                    promotion_id: "launch_offer_v3",
+                    location: "pricing_offer",
+                  }
+                )
+              }
               className="mt-6 inline-flex w-full items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold shadow-lg bg-white text-emerald-700 hover:opacity-90 transition"
             >
               Garantir a oferta
-            </a>
+            </button>
             <div className="mt-2 text-xs opacity-90">Expira em {timeLeft}</div>
           </div>
 
@@ -300,16 +356,35 @@ export default function Page() {
           <div className="rounded-3xl border p-6 md:p-8 bg-white">
             <div className="text-sm uppercase tracking-widest text-zinc-500">Preço Regular</div>
             <div className="mt-2 text-3xl font-extrabold">R$ {product.price.toFixed(2)}</div>
+            <br/>
             <ul className="mt-6 space-y-2 text-sm text-zinc-700">
               <li className="flex gap-3"><span>✓</span><span>Planilha completa pronta para uso</span></li>
               <li className="flex gap-3"><span>✓</span><span>Guia de início rápido</span></li>
+              <li className="flex gap-3"><span></span><span></span></li>
+              <li className="flex gap-3"><span></span><span></span></li>
+              <li className="flex gap-3"><span></span><span></span></li>
             </ul>
-            <a
-              href={`${product.checkout.full}?utm_source=site&utm_medium=pricing_card&utm_campaign=standard_checkout_v3`}
+            {/* CTA REGULAR - begin_checkout */}
+            <button
+              type="button"
+              onClick={() =>
+                trackAndGo(
+                  `${product.checkout.full}?utm_source=site&utm_medium=pricing_card&utm_campaign=standard_checkout_v3`,
+                  "begin_checkout",
+                  {
+                    currency: "BRL",
+                    value: product.price,
+                    items: [
+                      { item_id: "pfc_avancado", item_name: product.name, quantity: 1, price: product.price },
+                    ],
+                    location: "pricing_regular",
+                  }
+                )
+              }
               className="mt-6 inline-flex w-full items-center justify-center rounded-2xl px-6 py-3 text-base font-semibold shadow-lg bg-zinc-900 text-white hover:opacity-90 transition"
             >
               Comprar agora
-            </a>
+            </button>
             <div className="mt-2 text-xs text-zinc-500">Checkout seguro Kiwify</div>
           </div>
         </div>
@@ -333,12 +408,29 @@ export default function Page() {
         <div className="rounded-3xl border bg-gradient-to-br from-sky-50 to-emerald-50 p-8 text-center">
           <h3 className="text-2xl md:text-3xl font-extrabold">Deixe o caixa sob controle</h3>
           <p className="mt-2 text-zinc-700">Leve a planilha hoje com oferta de lançamento.</p>
-          <a
-            href={`${product.checkout.offer}?utm_source=site&utm_medium=final_cta&utm_campaign=launch_offer_v3`}
+          {/* CTA FINAL - begin_checkout */}
+          <button
+            type="button"
+            onClick={() =>
+              trackAndGo(
+                `${product.checkout.offer}?utm_source=site&utm_medium=final_cta&utm_campaign=launch_offer_v3`,
+                "begin_checkout",
+                {
+                  currency: "BRL",
+                  value: product.offerPrice,
+                  items: [
+                    { item_id: "pfc_avancado", item_name: product.name, quantity: 1, price: product.offerPrice },
+                  ],
+                  promotion_name: "Oferta de Lançamento",
+                  promotion_id: "launch_offer_v3",
+                  location: "final_cta",
+                }
+              )
+            }
             className="mt-6 inline-flex items-center justify-center rounded-2xl px-8 py-3 text-base font-semibold shadow-lg bg-gradient-to-r from-emerald-600 to-sky-600 text-white hover:opacity-90 transition"
           >
             Garantir por R$ {product.offerPrice.toFixed(2)}
-          </a>
+          </button>
           <div className="mt-2 text-xs text-zinc-600">Sem mensalidade. Pagamento único.</div>
         </div>
       </section>

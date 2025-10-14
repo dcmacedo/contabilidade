@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Montserrat, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
+import GoogleAnalytics from "./GoogleAnalytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,7 +43,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/Favicon.png",
     shortcut: "/Favicon.png",
-    apple: "/apple-touch-icon.png", // 180×180
   },
   manifest: "/manifest.webmanifest",
   alternates: { canonical: "/" },
@@ -70,7 +71,6 @@ export const metadata: Metadata = {
     images: ["/Dashboard.jpg"],
   },
   robots: { index: true, follow: true },
-  themeColor: "#10b981", // emerald-500
 };
 
 export default function RootLayout({
@@ -81,7 +81,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${montserrat.variable} ${geistMono.variable} antialiased`}
       >
+        <GoogleAnalytics/>
         {children}
+        <Analytics/>
       </body>
     </html>
   );
