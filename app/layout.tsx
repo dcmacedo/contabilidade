@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: "%s | Planilha Financeira Fácil",
   },
   description:
-    "Clareza total do dinheiro que entra e sai — decida com segurança todo mês.",
+    "Clareza total do dinheiro que entra e sai, decida com segurança todo mês.",
   keywords: [
     "fluxo de caixa",
     "planilha financeira",
@@ -40,6 +40,10 @@ export const metadata: Metadata = {
     "pequenos negócios",
     "relatórios",
     "dashboard",
+    "planilha",
+    "Micro Empreendedor",
+    "Sebrae",
+    "Excel",
   ],
   icons: {
     icon: "/Favicon.png",
