@@ -52,3 +52,11 @@ export const TESTIMONIALS = [
     { n: "Luzia C.", t: "Pessoa Fisica", d: "Uso como meu orçamento familiar. Muito Bom!" },
     { n: "Manuel P.", t: "MEI Serviços", d: "Agora consigo saber quanto ganho no mês." },
 ] as const;
+
+export const BRAND = {
+  name: "Planilha Financeira Fácil",
+  supportEmail: "suporte@planilhafinanceirafacil.net.br", // ajuste se quiser
+  whatsappE164: "5511998807892", // ex.: 55 11 91234-5678 -> "5511912345678"
+  whatsappDefaultMsg:
+    "Olá! Tenho uma dúvida sobre a Planilha de Fluxo de Caixa Avançado. Pode me ajudar?",
+} as const;

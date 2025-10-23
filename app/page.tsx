@@ -9,6 +9,8 @@ import PricingCard from "@/app/components/PricingCard";
 import CTAButton from "@/app/components/CTAButton";
 import TestimonialCard from "@/app/components/TestimonialCard";
 import { PRODUCT, BADGES, BENEFITS, FEATURES, FUTURE, TESTIMONIALS } from "@/lib/constants";
+import LeadForm from "@/app/components/LeadForm";
+import ContactBlock from "@/app/components/ContactBlock";
 
 export default function Page() {
   const [timeLeft, setTimeLeft] = useState<string>("");
@@ -227,6 +229,14 @@ export default function Page() {
         </div>
       </Section>
 
+      {/* Contato & Suporte */}
+      <Section id="contato" title="Dúvidas ou quer receber materiais?" subtitle="Fale com a gente ou deixe seu e-mail para receber conteúdos úteis e novidades." >
+        <div className="mb-6 grid md:grid-cols-2 gap-6">
+          <ContactBlock />
+          <LeadForm source="contact_section" />
+        </div>
+      </Section>
+
       {/* Footer */}
       <Section className="pb-10">
         <div className="border-t pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs text-zinc-600">
@@ -235,6 +245,7 @@ export default function Page() {
             <a href="#recursos" className="underline">Recursos</a>
             <a href="#preco" className="underline">Preço</a>
             <a href="#faq" className="underline">FAQ</a>
+            <a href="#contato" className="underline">Contato</a>
           </div>
         </div>
       </Section>
