@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Montserrat, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import GoogleAnalytics from "./GoogleAnalytics";
 
 const geistSans = Geist({
@@ -90,7 +91,8 @@ export default function RootLayout({
           <GoogleAnalytics />
         </Suspense>
         {children}
-        <Analytics/>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
