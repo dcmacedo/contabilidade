@@ -26,7 +26,7 @@ const geistMono = Geist_Mono({
  * Compatível com App Router
  */
 export const metadata: Metadata = {
-  metadataBase: new URL("https://planilhafinanceirafacil.net.br"),
+  metadataBase: new URL("https://contabilidade.vercel.app"),
   title: {
     default: "Planilha de Fluxo de Caixa Avançado | Planilha Financeira Fácil",
     template: "%s | Planilha Financeira Fácil",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    url: "https://planilhafinanceirafacil.net.br/",
+    url: "https://contabilidade.vercel.app/",
     siteName: "Planilha Financeira Fácil",
     title: "Planilha de Fluxo de Caixa Avançado",
     description:
