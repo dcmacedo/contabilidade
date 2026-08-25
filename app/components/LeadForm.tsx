@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { gaEvent } from "@/lib/ga";
 
 type LeadPayload = {
@@ -25,7 +26,7 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
     name: "",
     email: "",
     phone: "",
-    consent: true,
+    consent: false,
     company: "",
     source,
   });
@@ -86,7 +87,7 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
           name: "",
           email: "",
           phone: "",
-          consent: true,
+          consent: false,
           company: "",
           source,
         });
@@ -160,12 +161,14 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
         <input
           id="consent"
           type="checkbox"
+          required
           checked={data.consent}
           onChange={handleChange("consent")}
           className="mt-1 h-4 w-4 rounded border-zinc-300 text-emerald-600 focus:ring-emerald-600"
         />
         <label htmlFor="consent" className="text-xs text-zinc-600">
-          Aceito receber materiais, conteúdos e comunicações e concordo com a LGPD.
+          Aceito receber materiais, conteúdos e comunicações. Li e concordo com a{" "}
+          <Link href="/politica-de-privacidade" className="underline">política de privacidade</Link>.
         </label>
       </div>
 
@@ -177,8 +180,8 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
         {loading ? "Enviando..." : "Quero receber materiais e novidades"}
       </button>
 
-      {ok === true && <p className="text-sm text-emerald-700">{msg}</p>}
-      {ok === false && <p className="text-sm text-red-600">{msg}</p>}
+      {ok === true && <p aria-live="polite" className="text-sm text-emerald-700">{msg}</p>}
+      {ok === false && <p aria-live="assertive" className="text-sm text-red-600">{msg}</p>}
 
       <p className="text-[10px] text-zinc-500">Guardamos seu e-mail com segurança.</p>
     </form>
