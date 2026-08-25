@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { appendLeadToSheet } from "@/lib/googleSheets";
+import { checkRateLimit } from "@/lib/rateLimit";
 
 export const runtime = "nodejs";
 
@@ -8,7 +9,7 @@ const LeadSchema = z.object({
   name: z.string().min(2).max(80),
   email: z.email().max(120),
   phone: z.string().max(25).optional().default(""),
-  consent: z.boolean(),
+  consent: z.literal(true, { error: "Consent is required" }),
   company: z.string().max(0).optional().default(""), // honeypot
   source: z.string().max(60).optional().default("site"),
 
@@ -23,7 +24,26 @@ const LeadSchema = z.object({
 
 export async function POST(req: Request) {
   try {
-    const json = await req.json();
+    const contentLength = Number(req.headers.get("content-length") || 0);
+    if (contentLength > 16_384) {
+      return NextResponse.json({ ok: false, error: "Payload too large" }, { status: 413 });
+    }
+
+    const ip = (req.headers.get("x-forwarded-for") || "unknown").split(",")[0].trim();
+    const rateLimit = checkRateLimit(ip);
+    if (!rateLimit.allowed) {
+      return NextResponse.json(
+        { ok: false, error: "Too many requests" },
+        { status: 429, headers: { "Retry-After": String(rateLimit.retryAfterSeconds) } }
+      );
+    }
+
+    const rawBody = await req.text();
+    if (rawBody.length > 16_384) {
+      return NextResponse.json({ ok: false, error: "Payload too large" }, { status: 413 });
+    }
+
+    const json = JSON.parse(rawBody);
     const parsed = LeadSchema.safeParse(json);
     if (!parsed.success) {
       return NextResponse.json(
@@ -55,25 +75,6 @@ export async function POST(req: Request) {
     const referer = req.headers.get("referer") || "";
     const userAgent = req.headers.get("user-agent") || "";
 
-    console.log("GOOGLE_SHEETS_ID:", process.env.GOOGLE_SHEETS_ID ? "ok" : "missing");
-
-    console.log("[LEAD]", {
-      name,
-      email,
-      phone,
-      consent,
-      source,
-      referer,
-      utm_source,
-      utm_medium,
-      utm_campaign,
-      utm_content,
-      utm_term,
-      gclid,
-      fbclid,
-    });
-
-    // Salva na planilha (ordem deve bater com HEADER em googleSheets.ts)
     try {
       await appendLeadToSheet([
         new Date().toISOString(),
@@ -94,7 +95,10 @@ export async function POST(req: Request) {
       ]);
     } catch (gsErr) {
       console.error("[LEAD_SHEETS_ERROR]", gsErr);
-      // Não quebra o request
+      return NextResponse.json(
+        { ok: false, error: "Lead storage unavailable" },
+        { status: 503 }
+      );
     }
 
     // (Opcional) Envio de e-mail via Resend — igual sua versão anterior
@@ -108,11 +112,11 @@ export async function POST(req: Request) {
           subject: `Novo lead: ${name}`,
           html: `
             <h2>Novo lead</h2>
-            <p><b>Nome:</b> ${name}</p>
-            <p><b>E-mail:</b> ${email}</p>
-            <p><b>WhatsApp:</b> ${phone || "-"}</p>
+            <p><b>Nome:</b> ${escapeHtml(name)}</p>
+            <p><b>E-mail:</b> ${escapeHtml(email)}</p>
+            <p><b>WhatsApp:</b> ${escapeHtml(phone || "-")}</p>
             <p><b>Consentimento:</b> ${consent ? "Sim" : "Não"}</p>
-            <p><b>Origem:</b> ${source || "-"}</p>
+            <p><b>Origem:</b> ${escapeHtml(source || "-")}</p>
             <p><b>UTMs:</b> ${[
               utm_source && `source=${utm_source}`,
               utm_medium && `medium=${utm_medium}`,
@@ -123,8 +127,9 @@ export async function POST(req: Request) {
               fbclid && `fbclid=${fbclid}`,
             ]
               .filter(Boolean)
+              .map((value) => escapeHtml(String(value)))
               .join(" | ")}</p>
-            <p><b>Referer:</b> ${referer}</p>
+            <p><b>Referer:</b> ${escapeHtml(referer)}</p>
             <small>${new Date().toLocaleString("pt-BR")}</small>
           `,
         });
@@ -138,4 +143,17 @@ export async function POST(req: Request) {
     console.error("[LEAD_ERROR]", err);
     return NextResponse.json({ ok: false, error: "Server error" }, { status: 500 });
   }
+}
+
+function escapeHtml(value: string) {
+  return value.replace(/[&<>'"]/g, (character) => {
+    const entities: Record<string, string> = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      "'": "&#39;",
+      '"': "&quot;",
+    };
+    return entities[character];
+  });
 }
