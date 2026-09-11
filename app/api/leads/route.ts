@@ -1,26 +1,9 @@
 import { NextResponse } from "next/server";
-import { z } from "zod";
 import { appendLeadToSheet } from "@/lib/googleSheets";
 import { checkRateLimit } from "@/lib/rateLimit";
+import { parseLeadPayload } from "@/lib/lead";
 
 export const runtime = "nodejs";
-
-const LeadSchema = z.object({
-  name: z.string().min(2).max(80),
-  email: z.email().max(120),
-  phone: z.string().max(25).optional().default(""),
-  consent: z.literal(true, { error: "Consent is required" }),
-  company: z.string().max(0).optional().default(""), // honeypot
-  source: z.string().max(60).optional().default("site"),
-
-  utm_source: z.string().max(120).optional(),
-  utm_medium: z.string().max(120).optional(),
-  utm_campaign: z.string().max(120).optional(),
-  utm_content: z.string().max(120).optional(),
-  utm_term: z.string().max(120).optional(),
-  gclid: z.string().max(200).optional(),
-  fbclid: z.string().max(200).optional(),
-});
 
 export async function POST(req: Request) {
   try {
@@ -44,7 +27,7 @@ export async function POST(req: Request) {
     }
 
     const json = JSON.parse(rawBody);
-    const parsed = LeadSchema.safeParse(json);
+    const parsed = parseLeadPayload(json);
     if (!parsed.success) {
       return NextResponse.json(
         { ok: false, error: "Invalid payload", issues: parsed.error.issues },

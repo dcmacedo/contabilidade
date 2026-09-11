@@ -1,12 +1,13 @@
 import { google } from "googleapis";
+import { requireServerEnv } from "@/lib/env";
 
 let _sheets: ReturnType<typeof google.sheets> | null = null;
 
 function getSheets() {
   if (_sheets) return _sheets;
 
-  const clientEmail = requireEnv("GOOGLE_SERVICE_ACCOUNT_EMAIL");
-  const rawKey = requireEnv("GOOGLE_SERVICE_ACCOUNT_KEY");
+  const clientEmail = requireServerEnv("GOOGLE_SERVICE_ACCOUNT_EMAIL");
+  const rawKey = requireServerEnv("GOOGLE_SERVICE_ACCOUNT_KEY");
   const privateKey = rawKey.replace(/\\n/g, "\n");
 
   const auth = new google.auth.JWT({
@@ -38,7 +39,7 @@ const HEADER = [
 ] as const;
 
 async function ensureHeader() {
-  const spreadsheetId = requireEnv("GOOGLE_SHEETS_ID");
+  const spreadsheetId = requireServerEnv("GOOGLE_SHEETS_ID");
   const sheetName = process.env.GOOGLE_SHEETS_TAB || "Leads";
   const sheets = getSheets();
 
@@ -66,7 +67,7 @@ async function ensureHeader() {
 }
 
 export async function appendLeadToSheet(values: (string | number | boolean)[]) {
-  const spreadsheetId = requireEnv("GOOGLE_SHEETS_ID");
+  const spreadsheetId = requireServerEnv("GOOGLE_SHEETS_ID");
   const sheetName = process.env.GOOGLE_SHEETS_TAB || "Leads";
   const sheets = getSheets();
 
@@ -80,8 +81,3 @@ export async function appendLeadToSheet(values: (string | number | boolean)[]) {
   });
 }
 
-function requireEnv(name: string) {
-  const value = process.env[name];
-  if (!value) throw new Error(`Missing required environment variable: ${name}`);
-  return value;
-}

@@ -5,6 +5,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import GoogleAnalytics from "./GoogleAnalytics";
+import { publicEnv } from "@/lib/env";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,8 +26,10 @@ const geistMono = Geist_Mono({
  * SEO + PWA + OpenGraph + Favicon
  * Compatível com App Router
  */
+const siteUrl = publicEnv.NEXT_PUBLIC_SITE_URL;
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://contabilidade.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "Planilha de Fluxo de Caixa Avançado | Planilha Financeira Fácil",
     template: "%s | Planilha Financeira Fácil",
@@ -54,7 +57,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    url: "https://contabilidade.vercel.app/",
+    url: siteUrl,
     siteName: "Planilha Financeira Fácil",
     title: "Planilha de Fluxo de Caixa Avançado",
     description:

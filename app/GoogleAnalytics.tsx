@@ -3,10 +3,10 @@
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import Script from "next/script";
+import { publicEnv } from "@/lib/env";
 
-// IDs de medição
-const GA_MEASUREMENT_ID = "G-WHH5NFS1H3"; // GA4
-const ADS_ID = "AW-405311343"; // Google Ads
+const GA_MEASUREMENT_ID = publicEnv.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const ADS_ID = publicEnv.NEXT_PUBLIC_ADS_ID;
 
 export default function GoogleAnalytics() {
   const pathname = usePathname();
@@ -20,7 +20,6 @@ export default function GoogleAnalytics() {
       pathname +
       (searchParams?.toString() ? `?${searchParams}` : "");
 
-    // Rastreia visualização de página
     window.gtag("event", "page_view", {
       page_location: url,
       page_path: pathname,
@@ -28,26 +27,24 @@ export default function GoogleAnalytics() {
     });
   }, [pathname, searchParams]);
 
+  if (!GA_MEASUREMENT_ID && !ADS_ID) return null;
+
   return (
     <>
-      {/* Script principal do gtag */}
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        strategy="afterInteractive"
-      />
+      {GA_MEASUREMENT_ID ? (
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+      ) : null}
 
-      {/* Inicialização do GA4 + Ads */}
       <Script id="gtag-init" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-
-          // GA4
-          gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });
-
-          // Google Ads
-          gtag('config', '${ADS_ID}');
+          ${GA_MEASUREMENT_ID ? `gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });` : ""}
+          ${ADS_ID ? `gtag('config', '${ADS_ID}');` : ""}
         `}
       </Script>
     </>

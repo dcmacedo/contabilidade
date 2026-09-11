@@ -1,6 +1,4 @@
 
-"use client";
-import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Section from "@/app/components/Section";
 import Badge from "@/app/components/Badge";
@@ -11,34 +9,9 @@ import TestimonialCard from "@/app/components/TestimonialCard";
 import { PRODUCT, BADGES, BENEFITS, FEATURES, FUTURE, TESTIMONIALS } from "@/lib/constants";
 import LeadForm from "@/app/components/LeadForm";
 import ContactBlock from "@/app/components/ContactBlock";
+import CountdownBanner from "@/app/components/CountdownBanner";
 
 export default function Page() {
-  const [timeLeft, setTimeLeft] = useState<string>("");
-  const deadline = useMemo(() => {
-    const key = "pfc_v2_countdown_deadline";
-    const existing = typeof window !== "undefined" ? localStorage.getItem(key) : null;
-    let end = existing ? new Date(existing) : null;
-    if (!end || end.getTime() < Date.now()) {
-      end = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-      if (typeof window !== "undefined") localStorage.setItem(key, end.toISOString());
-    }
-    return end;
-  }, []);
-
-  useEffect(() => {
-    const tick = () => {
-      const diff = deadline.getTime() - Date.now();
-      if (diff <= 0) return setTimeLeft("00:00:00");
-      const h = Math.floor(diff / 3_600_000);
-      const m = Math.floor((diff % 3_600_000) / 60_000);
-      const s = Math.floor((diff % 60_000) / 1000);
-      setTimeLeft(`${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`);
-    };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, [deadline]);
-
   const itemOffer = [
     { item_id: "pfc_avancado", item_name: PRODUCT.name, quantity: 1, price: PRODUCT.offerPrice },
   ];
@@ -70,9 +43,11 @@ export default function Page() {
       />
 
       {/* Top Bar / Offer */}
-      <div className="w-full bg-gradient-to-r from-emerald-600 to-sky-600 text-white text-center text-sm py-2">
-        Oferta de lançamento: de R$ {PRODUCT.price.toFixed(2)} por <span className="font-semibold">R$ {PRODUCT.offerPrice.toFixed(2)}</span> — expira em <span className="font-mono">{timeLeft}</span>
-      </div>
+      <CountdownBanner
+        price={PRODUCT.price}
+        offerPrice={PRODUCT.offerPrice}
+        label="Oferta de lançamento"
+      />
 
       {/* Hero */}
       <Section className="py-14 md:py-20">
