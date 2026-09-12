@@ -6,7 +6,7 @@ Baseado no arquivo `MODERNIZACAO.md`, os seguintes itens ainda não foram implem
 
 | Fase | Item | Status |
 |------|------|--------|
-| **Fase 1** | Avaliar CAPTCHA ou proteção equivalente contra automação | ❌ Pendente |
+| **Fase 1** | Avaliar CAPTCHA ou proteção equivalente contra automação | ✅ Concluído |
 | **Fase 3** | Criar um painel ou rotina de conferência de leads e conversões | ❌ Pendente |
 | **Fase 3** | Validar URLs de compartilhamento social e imagem Open Graph em produção | ❌ Pendente |
 | **Fase 4** | Reescrever o hero para comunicar público, problema e resultado em poucos segundos | ❌ Pendente |
