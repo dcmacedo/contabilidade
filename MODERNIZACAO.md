@@ -19,8 +19,18 @@ Modernizar a landing page da Planilha Financeira Fácil para aumentar confiança
 - [x] Remover PII dos logs de produção ou aplicar mascaramento.
 - [x] Diferenciar resposta de sucesso, falha temporária e falha permanente do Google Sheets.
 - [x] Validar variáveis de ambiente no início da execução ou durante o build.
+- [x] Centralizar validação do payload da API em módulo dedicado.
+- [x] Extrair o countdown para um componente isolado.
+- [x] Mover URLs e IDs de analytics para variáveis públicas e validadas por ambiente.
+- [x] Atualizar README com setup, variáveis de ambiente e instruções de uso.
 
 > O rate limiting atual usa memória local do processo. Antes de escalar para múltiplas instâncias ou funções serverless, substituir por um armazenamento compartilhado, como Redis/Upstash.
+
+### Status executivo em 2026-09-11
+
+- Fase 1: concluída na base de segurança e LGPD.
+- Fase 2: concluída na estrutura básica de arquitetura e organização do código.
+- Fase 3: planejada e detalhada abaixo.
 ## 3. Principais achados
 
 ### 3.1 Riscos críticos e de alta prioridade
@@ -122,16 +132,16 @@ A landing page tem boa base de componentes e imagens reais do produto, mas pode 
 **Objetivo:** reduzir acoplamento e tornar o projeto mais fácil de evoluir.
 
 ### Tarefas
-- [ ] Transformar `app/page.tsx` em Server Component.
-- [ ] Extrair o countdown para um componente client isolado.
-- [ ] Manter analytics e navegação de checkout em componentes client específicos.
-- [ ] Separar conteúdo, configuração de produto e composição visual.
-- [ ] Criar um módulo de configuração de ambiente tipado e validado.
+- [x] Transformar `app/page.tsx` em Server Component em parte do conteúdo estático.
+- [x] Extrair o countdown para um componente client isolado.
+- [x] Manter analytics e navegação de checkout em componentes client específicos.
+- [x] Separar conteúdo, configuração de produto e composição visual.
+- [x] Criar um módulo de configuração de ambiente tipado e validado.
 - [x] Migrar `next lint` para o fluxo oficial do ESLint CLI.
-- [ ] Adicionar testes unitários para validação do payload da API.
+- [x] Adicionar testes unitários para validação do payload da API.
 - [ ] Adicionar testes de integração para sucesso, erro de persistência e honeypot.
 - [ ] Adicionar teste do fluxo de formulário no navegador.
-- [ ] Documentar setup local e deploy no README.
+- [x] Documentar setup local e deploy no README.
 
 ### Critérios de aceite
 
@@ -145,25 +155,43 @@ A landing page tem boa base de componentes e imagens reais do produto, mas pode 
 **Prioridade:** P1  
 **Objetivo:** garantir que o tráfego seja corretamente indexado e que o funil seja mensurável.
 
-### Tarefas
+### Plano executivo
 
-- [ ] Definir o domínio canônico de produção e usá-lo em todos os metadados.
-- [ ] Corrigir canonical, Open Graph, Twitter Cards e URLs do JSON-LD.
-- [ ] Criar `sitemap.xml` e `robots.txt`.
-- [ ] Criar uma seção FAQ real e adicionar dados estruturados quando aplicável.
+#### 3.1 Meta
+Aumentar visibilidade orgânica, remover ruídos de rastreamento e garantir que cada etapa do funil seja rastreada de forma consistente, respeitando consentimento do visitante.
+
+#### 3.2 Tarefas
+- [x] Definir o domínio canônico de produção e usá-lo em todos os metadados.
+- [x] Corrigir canonical, Open Graph, Twitter Cards e URLs do JSON-LD.
+- [x] Criar `sitemap.xml` e `robots.txt` com regras de indexação adequadas.
+- [x] Cria la seção FAQ real e adicionar dados estruturados quando aplicável.
 - [x] Criar página ou seção de política de privacidade.
-- [ ] Mover IDs de Analytics e Ads para variáveis de ambiente públicas.
-- [ ] Implementar consent mode e bloqueio de marketing antes do consentimento.
-- [ ] Padronizar eventos do funil: visualização, clique no CTA, checkout iniciado, lead enviado e compra concluída.
-- [ ] Persistir UTMs de forma consistente durante a jornada.
+- [x] Mover IDs de Analytics e Ads para variáveis de ambiente públicas.
+- [x] Implementar consent mode e bloqueio de marketing antes do consentimento.
+- [x] Padronizar eventos do funil: visualização, clique no CTA, checkout iniciado, lead enviado e compra concluída.
+- [x] Persistir UTMs de forma consistente durante a jornada.
 - [ ] Criar um painel ou rotina de conferência de leads e conversões.
+- [ ] Validar URLs de compartilhamento social e imagem Open Graph em produção.
 
-### Critérios de aceite
+#### 3.3 Sequência sugerida
+1. Ajustar domínio e metadados canônicos.
+2. Criar `robots.txt` e `sitemap.xml`.
+3. Implementar FAQ e dados estruturados relevantes.
+4. Padronizar eventos e UTMs.
+5. Ativar consent mode e verificar bloqueio de marketing.
+6. Criar rotina de conferência de leads e conversões.
 
+#### 3.4 Critérios de aceite
 - Compartilhamento social mostra o domínio e a imagem corretos.
 - O funil consegue distinguir origem, campanha, CTA e resultado.
 - Analytics e Ads respeitam a decisão de consentimento do visitante.
 - A página possui FAQ e links legais funcionais.
+- Leads e conversões podem ser conferidos com rastreio consistente.
+
+#### 3.5 Riscos e atenção
+- O consentimento precisa ser validado antes do carregamento de scripts de marketing.
+- UTMs devem ser persistidas durante a jornada sem perder contexto entre páginas e cliques.
+- O domínio canônico precisa estar alinhado com o domínio de produção para evitar duplicidade de indexação.
 
 ### Fase 4 — Produto e conversão
 

@@ -16,7 +16,15 @@ type GtagEventParams = {
 type GtagCommand =
     | ["js", Date]
     | ["config", string, GtagConfigParams?]
-    | ["event", string, GtagEventParams?];
+    | ["event", string, GtagEventParams?]
+    | ["consent", "default" | "update", GtagConsentParams?];
+
+type GtagConsentParams = {
+    analytics_storage?: "granted" | "denied";
+    ad_storage?: "granted" | "denied";
+    wait_for_update?: number;
+    [key: string]: unknown;
+};
 
 
 type GtagFn = (...args: GtagCommand) => void;
