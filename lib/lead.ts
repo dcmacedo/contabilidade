@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const DATA_RETENTION_POLICY = {
+export const DATA_RETENTION_POLICY = {
   retentionDays: 180,
   retentionNote: "Dados armazenados no Google Sheets por 180 dias conforme LGPD",
   accessPolicy: "Acesso restrito ao proprietário do produto via Google Sheets direto",
@@ -28,5 +28,3 @@ export type LeadPayload = z.infer<typeof LeadSchema>;
 export function parseLeadPayload(input: unknown) {
   return LeadSchema.safeParse(input);
 }
-
-export const DATA_RETENTION_POLICY = DATA_RETENTION_POLICY;

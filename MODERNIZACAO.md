@@ -107,7 +107,7 @@ A landing page tem boa base de componentes e imagens reais do produto, mas pode 
 - [x] Iniciar o campo de consentimento como `false`.
 - [x] Validar `consent === true` no schema da API.
 - [x] Adicionar link para política de privacidade e finalidade da coleta.
-- [ ] Definir retenção e acesso aos dados armazenados no Google Sheets.
+- [x] Definir retenção e acesso aos dados armazenados no Google Sheets.
 - [x] Escapar ou sanitizar todos os valores usados no HTML do Resend.
 - [x] Adicionar rate limiting por IP ou por janela de tempo.
 - [x] Definir limite de tamanho do corpo da requisição.
@@ -139,8 +139,8 @@ A landing page tem boa base de componentes e imagens reais do produto, mas pode 
 - [x] Criar um módulo de configuração de ambiente tipado e validado.
 - [x] Migrar `next lint` para o fluxo oficial do ESLint CLI.
 - [x] Adicionar testes unitários para validação do payload da API.
-- [ ] Adicionar testes de integração para sucesso, erro de persistência e honeypot.
-- [ ] Adicionar teste do fluxo de formulário no navegador.
+- [x] Adicionar testes de integração para sucesso, erro de persistência e honeypot.
+- [x] Adicionar teste do fluxo de formulário no navegador.
 - [x] Documentar setup local e deploy no README.
 
 ### Critérios de aceite

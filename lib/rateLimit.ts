@@ -8,8 +8,15 @@ type RateLimitEntry = {
 
 const entries = new Map<string, RateLimitEntry>();
 
+function cleanupExpired(now: number) {
+  for (const [k, v] of entries) {
+    if (v.resetAt <= now) entries.delete(k);
+  }
+}
+
 export function checkRateLimit(key: string) {
   const now = Date.now();
+  cleanupExpired(now);
   const current = entries.get(key);
 
   if (!current || current.resetAt <= now) {

@@ -25,10 +25,10 @@ Landing page e fluxo de captura de leads para a Planilha de Fluxo de Caixa Avan�
 npm install
 ```
 
-2. Crie um arquivo `.env.local` com as variáveis abaixo:
+1. Crie um arquivo `.env.local` com as variáveis abaixo:
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://planilhafinanceirafacil.net.br
+NEXT_PUBLIC_SITE_URL=https://pv.dcmacedo.com.br
 NEXT_PUBLIC_GA_MEASUREMENT_ID=
 NEXT_PUBLIC_ADS_ID=
 
@@ -42,7 +42,7 @@ RESEND_FROM=
 LEAD_NOTIFY_TO=
 ```
 
-3. Rode o projeto:
+1. Rode o projeto:
 
 ```bash
 npm run dev
@@ -56,6 +56,7 @@ A aplicação fica disponível em `http://localhost:3000`.
 npm run dev
 npm run build
 npm run lint
+npm run test
 ```
 
 ## Fluxo de lead
