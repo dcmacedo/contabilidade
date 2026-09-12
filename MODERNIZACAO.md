@@ -161,15 +161,15 @@ A landing page tem boa base de componentes e imagens reais do produto, mas pode 
 Aumentar visibilidade orgânica, remover ruídos de rastreamento e garantir que cada etapa do funil seja rastreada de forma consistente, respeitando consentimento do visitante.
 
 #### 3.2 Tarefas
-- [ ] Definir o domínio canônico de produção e usá-lo em todos os metadados.
-- [ ] Corrigir canonical, Open Graph, Twitter Cards e URLs do JSON-LD.
-- [ ] Criar `sitemap.xml` e `robots.txt` com regras de indexação adequadas.
-- [ ] Cria la seção FAQ real e adicionar dados estruturados quando aplicável.
+- [x] Definir o domínio canônico de produção e usá-lo em todos os metadados.
+- [x] Corrigir canonical, Open Graph, Twitter Cards e URLs do JSON-LD.
+- [x] Criar `sitemap.xml` e `robots.txt` com regras de indexação adequadas.
+- [x] Cria la seção FAQ real e adicionar dados estruturados quando aplicável.
 - [x] Criar página ou seção de política de privacidade.
 - [x] Mover IDs de Analytics e Ads para variáveis de ambiente públicas.
-- [ ] Implementar consent mode e bloqueio de marketing antes do consentimento.
-- [ ] Padronizar eventos do funil: visualização, clique no CTA, checkout iniciado, lead enviado e compra concluída.
-- [ ] Persistir UTMs de forma consistente durante a jornada.
+- [x] Implementar consent mode e bloqueio de marketing antes do consentimento.
+- [x] Padronizar eventos do funil: visualização, clique no CTA, checkout iniciado, lead enviado e compra concluída.
+- [x] Persistir UTMs de forma consistente durante a jornada.
 - [ ] Criar um painel ou rotina de conferência de leads e conversões.
 - [ ] Validar URLs de compartilhamento social e imagem Open Graph em produção.
 

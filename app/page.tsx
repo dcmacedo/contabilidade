@@ -6,10 +6,11 @@ import FeatureCard from "@/app/components/FeatureCard";
 import PricingCard from "@/app/components/PricingCard";
 import CTAButton from "@/app/components/CTAButton";
 import TestimonialCard from "@/app/components/TestimonialCard";
-import { PRODUCT, BADGES, BENEFITS, FEATURES, FUTURE, TESTIMONIALS } from "@/lib/constants";
+import { PRODUCT, BADGES, BENEFITS, FEATURES, FUTURE, TESTIMONIALS, FAQ } from "@/lib/constants";
 import LeadForm from "@/app/components/LeadForm";
 import ContactBlock from "@/app/components/ContactBlock";
 import CountdownBanner from "@/app/components/CountdownBanner";
+import FAQSection from "@/app/components/FAQSection";
 
 export default function Page() {
   const itemOffer = [
@@ -38,6 +39,25 @@ export default function Page() {
               url: PRODUCT.checkout.offer,
               availability: "https://schema.org/InStock",
             },
+          }),
+        }}
+      />
+
+      {/* FAQ JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: FAQ.map((item) => ({
+              "@type": "Question",
+              name: item.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: item.a,
+              },
+            })),
           }),
         }}
       />
@@ -144,6 +164,13 @@ export default function Page() {
           {TESTIMONIALS.map((t) => (
             <TestimonialCard key={t.n} n={t.n} t={t.t} d={t.d} />
           ))}
+        </div>
+      </Section>
+
+      {/* FAQ */}
+      <Section id="faq" title="Perguntas Frequentes" subtitle="Tire suas dúvidas sobre a planilha." center>
+        <div className="max-w-3xl mx-auto">
+          <FAQSection />
         </div>
       </Section>
 

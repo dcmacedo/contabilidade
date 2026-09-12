@@ -8,7 +8,7 @@ export const PRODUCT = {
         full: "https://pay.kiwify.com.br/bteZeop",
         offer: "https://pay.kiwify.com.br/5zOJENA",
     },
-    domain: "https://planilhafinanceirafacil.net.br",
+    domain: "https://pv.dcmacedo.com.br/",
 } as const;
 
 
@@ -54,9 +54,32 @@ export const TESTIMONIALS = [
 ] as const;
 
 export const BRAND = {
-  name: "Planilha Financeira Fácil",
-  supportEmail: "suporte@planilhafinanceirafacil.net.br", // ajuste se quiser
-  whatsappE164: "5511998807892", // ex.: 55 11 91234-5678 -> "5511912345678"
-  whatsappDefaultMsg:
-    "Olá! Tenho uma dúvida sobre a Planilha de Fluxo de Caixa Avançado. Pode me ajudar?",
+    name: "Planilha Financeira Fácil",
+    supportEmail: "contato@pv.dcmacedo.com.br", // ajuste se quiser
+    whatsappE164: "5511998807892", // ex.: 55 11 91234-5678 -> "5511912345678"
+    whatsappDefaultMsg:
+        "Olá! Tenho uma dúvida sobre a Planilha de Fluxo de Caixa Avançado. Pode me ajudar?",
 } as const;
+
+export const FAQ = [
+    {
+        q: "Preciso pagar mensalidade?",
+        a: "Não. O pagamento é único. Você compra a planilha uma vez e tem acesso vitalício à versão adquirida."
+    },
+    {
+        q: "Como recebo a planilha?",
+        a: "Assim que o pagamento for confirmado (imediato para Pix e Cartão), você recebe um e-mail da Kiwify com o link para download."
+    },
+    {
+        q: "Funciona no Excel e no Google Sheets?",
+        a: "Sim, ela foi desenvolvida para ser compatível com as versões recentes do Excel e também funciona perfeitamente ao ser importada no Google Sheets."
+    },
+    {
+        q: "Tem suporte?",
+        a: "Sim, oferecemos suporte básico por e-mail para dúvidas sobre a instalação e uso inicial da planilha."
+    },
+    {
+        q: "E se eu não gostar?",
+        a: "Você tem 7 dias de garantia incondicional. Se não for o que você esperava, devolvemos seu dinheiro via Kiwify."
+    }
+] as const;

@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const publicEnvSchema = z.object({
-  NEXT_PUBLIC_SITE_URL: z.string().url().default("https://planilhafinanceirafacil.net.br"),
+  NEXT_PUBLIC_SITE_URL: z.string().url().default("https://pv.dcmacedo.com.br"),
   NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().optional().default(""),
   NEXT_PUBLIC_ADS_ID: z.string().optional().default(""),
 });
