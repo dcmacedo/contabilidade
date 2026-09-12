@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
           <p>Os dados podem ser armazenados em ferramentas operacionais de terceiros, como Google Sheets e Resend, usadas para organizar leads e enviar comunicações.</p>
 
           <h2 className="text-xl font-semibold text-zinc-900">Seus direitos</h2>
-          <p>Você pode solicitar acesso, correção ou exclusão dos seus dados pelo e-mail suporte@planilhafinanceirafacil.net.br.</p>
+          <p>Você pode solicitar acesso, correção ou exclusão dos seus dados pelo e-mail suporte@pv.dcmacedo.com.br.</p>
         </section>
 
         <Link href="/" className="mt-8 inline-block underline">Voltar para a página inicial</Link>
