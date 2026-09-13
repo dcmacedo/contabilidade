@@ -40,6 +40,13 @@ GOOGLE_SHEETS_TAB=Leads
 RESEND_API_KEY=
 RESEND_FROM=
 LEAD_NOTIFY_TO=
+
+# Lead report
+LEAD_REPORT_TOKEN=
+
+# Cloudflare Turnstile
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=
+TURNSTILE_SECRET_KEY=
 ```
 
 1. Rode o projeto:
@@ -67,6 +74,13 @@ npm run test
 - Há honeypot e rate limit para reduzir abuso.
 - Leads válidos são gravados no Google Sheets.
 - Um e-mail de notificação pode ser enviado via Resend quando as variáveis estiverem configuradas.
+
+## Relatório de leads
+
+- Endpoint `/api/leads/report?token=SEU_TOKEN` retorna métricas de leads (total, por dia/semana/mês, por origem/UTM, taxa de consentimento).
+- Endpoint `/api/leads/report` com método POST pode enviar um relatório semanal por e-mail (usa `LEAD_REPORT_TOKEN`).
+- Configure o token de acesso e o token de relatório em `LEAD_REPORT_TOKEN` e `LEAD_NOTIFY_TOKEN` respectivamente.
+- Configure o cron job em `vercel.json` para enviar relatórios semanais.
 
 ## Deploy
 

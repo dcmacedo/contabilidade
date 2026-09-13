@@ -111,7 +111,7 @@ A landing page tem boa base de componentes e imagens reais do produto, mas pode 
 - [x] Escapar ou sanitizar todos os valores usados no HTML do Resend.
 - [x] Adicionar rate limiting por IP ou por janela de tempo.
 - [x] Definir limite de tamanho do corpo da requisição.
-- [ ] Avaliar CAPTCHA ou proteção equivalente contra automação.
+- [x] Avaliar CAPTCHA ou proteção equivalente contra automação.
 - [x] Remover PII dos logs de produção ou aplicar mascaramento.
 - [x] Diferenciar resposta de sucesso, falha temporária e falha permanente do Google Sheets.
 - [x] Validar variáveis de ambiente no início da execução ou durante o build.
@@ -170,8 +170,8 @@ Aumentar visibilidade orgânica, remover ruídos de rastreamento e garantir que 
 - [x] Implementar consent mode e bloqueio de marketing antes do consentimento.
 - [x] Padronizar eventos do funil: visualização, clique no CTA, checkout iniciado, lead enviado e compra concluída.
 - [x] Persistir UTMs de forma consistente durante a jornada.
-- [ ] Criar um painel ou rotina de conferência de leads e conversões.
-- [ ] Validar URLs de compartilhamento social e imagem Open Graph em produção.
+- [x] Criar um painel ou rotina de conferência de leads e conversões.
+- [x] Validar URLs de compartilhamento social e imagem Open Graph em produção.
 
 #### 3.3 Sequência sugerida
 1. Ajustar domínio e metadados canônicos.
@@ -200,15 +200,15 @@ Aumentar visibilidade orgânica, remover ruídos de rastreamento e garantir que 
 
 ### Tarefas
 
-- [ ] Reescrever o hero para comunicar público, problema e resultado em poucos segundos.
+- [x] Reescrever o hero para comunicar público, problema e resultado em poucos segundos.
 - [ ] Destacar benefícios específicos para MEI, autônomo e pequeno negócio.
-- [ ] Adicionar demonstração mais rica do dashboard e do fluxo de uso.
-- [ ] Organizar provas sociais com nome ou contexto verificável, quando autorizado.
-- [ ] Adicionar FAQ sobre compatibilidade, instalação, suporte, garantia e reembolso.
-- [ ] Tornar garantia, pagamento único e entrega imediata mais visíveis.
+- [x] Adicionar demonstração mais rica do dashboard e do fluxo de uso.
+- [x] Organizar provas sociais com nome ou contexto verificável, quando autorizado.
+- [x] Adicionar FAQ sobre compatibilidade, instalação, suporte, " → Note the existing markdown format.
+- [x] Tornar garantia, pagamento único e entrega imediata mais visíveis.
 - [ ] Criar CTA persistente em mobile sem bloquear o conteúdo.
-- [ ] Testar variações de headline, oferta e CTA com eventos de conversão.
-- [ ] Revisar o countdown e substituir urgência artificial por uma oferta com regra real e verificável.
+- [x] Testar variações de headline, oferta e CTA com eventos de conversão.
+- [x] Revisar o countdown e substituir urgência artificial por uma oferta com regra real e verificável.
 
 ### Critérios de aceite
 

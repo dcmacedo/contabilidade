@@ -27,6 +27,30 @@ export async function POST(req: Request) {
     }
 
     const json = JSON.parse(rawBody);
+
+    // Validação Turnstile
+    const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
+    if (turnstileSecret) {
+      const token = json.cf_token;
+      if (!token) {
+        return NextResponse.json({ ok: false, error: "Missing captcha token" }, { status: 400 });
+      }
+
+      const verifyRes = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          secret: turnstileSecret,
+          response: token,
+          remoteip: ip,
+        }),
+      });
+      const verifyJson = await verifyRes.json();
+      if (!verifyJson.success) {
+        return NextResponse.json({ ok: false, error: "Invalid captcha" }, { status: 400 });
+      }
+    }
+
     const parsed = parseLeadPayload(json);
     if (!parsed.success) {
       return NextResponse.json(

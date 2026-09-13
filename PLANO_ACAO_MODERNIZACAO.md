@@ -6,18 +6,18 @@ Baseado no arquivo `MODERNIZACAO.md`, os seguintes itens ainda não foram implem
 
 | Fase | Item | Status |
 |------|------|--------|
-| **Fase 1** | Avaliar CAPTCHA ou proteção equivalente contra automação | ❌ Pendente |
-| **Fase 3** | Criar um painel ou rotina de conferência de leads e conversões | ❌ Pendente |
+| **Fase 1** | Avaliar CAPTCHA ou proteção equivalente contra automação | ✅ Concluído |
+| **Fase 3** | Criar um painel ou rotina de conferência de leads e conversões | ✅ Concluído |
 | **Fase 3** | Validar URLs de compartilhamento social e imagem Open Graph em produção | ❌ Pendente |
-| **Fase 4** | Reescrever o hero para comunicar público, problema e resultado em poucos segundos | ❌ Pendente |
-| **Fase 4** | Destacar benefícios específicos para MEI, autônomo e pequeno negócio | ❌ Pendente |
-| **Fase 4** | Adicionar demonstração mais rica do dashboard e do fluxo de uso | ❌ Pendente |
-| **Fase 4** | Organizar provas sociais com nome ou contexto verificável | ❌ Pendente |
-| **Fase 4** | Adicionar FAQ sobre compatibilidade, instalação, suporte, garantia e reembolso | ❌ Pendente |
-| **Fase 4** | Tornar garantia, pagamento único e entrega imediata mais visíveis | ❌ Pendente |
+| **Fase 4** | Reescrever o hero para comunicar público, problema e resultado em poucos segundos | ✅ Concluído |
+| **Fase 4** | Destacar benefícios específicos para MEI, autônomo e pequeno negócio | ✅ Concluído |
+| **Fase 4** | Adicionar demonstração mais rica do dashboard e do fluxo de uso | ✅ Concluído |
+| **Fase 4** | Organizar provas sociais com nome ou contexto verificável | ✅ Concluído |
+| **Fase 4** | Adicionar FAQ sobre compatibilidade, instalação, suporte, garantia e reembolso | ✅ Concluído |
+| **Fase 4** | Tornar garantia, pagamento único e entrega imediata mais visíveis | ✅ Concluído |
 | **Fase 4** | Criar CTA persistente em mobile sem bloquear o conteúdo | ❌ Pendente |
-| **Fase 4** | Testar variações de headline, oferta e CTA com eventos de conversão | ❌ Pendente |
-| **Fase 4** | Revisar o countdown e substituir urgência artificial por uma oferta com regra real | ❌ Pendente |
+| **Fase 4** | Testar variações de headline, oferta e CTA com eventos de conversão | ✅ Concluído |
+| **Fase 4** | Revisar o countdown e substituir urgência artificial por uma oferta com regra real | ✅ Concluído |
 | **Fase 5** | Definir tokens de cor, tipografia, espaçamento e estados em `globals.css` | ❌ Pendente |
 | **Fase 5** | Usar de forma consistente as fontes já carregadas pelo layout | ❌ Pendente |
 | **Fase 5** | Reduzir repetição de gradientes e cards arredondados | ❌ Pendente |

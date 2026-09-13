@@ -1,24 +1,34 @@
 
 import Image from "next/image";
+import { cookies } from "next/headers";
 import Section from "@/app/components/Section";
 import Badge from "@/app/components/Badge";
 import FeatureCard from "@/app/components/FeatureCard";
 import PricingCard from "@/app/components/PricingCard";
 import CTAButton from "@/app/components/CTAButton";
 import TestimonialCard from "@/app/components/TestimonialCard";
-import { PRODUCT, BADGES, BENEFITS, FEATURES, FUTURE, TESTIMONIALS, FAQ } from "@/lib/constants";
+import { SegmentBenefits } from "@/app/components/SegmentBenefits";
+import { DashboardDemo } from "@/app/components/DashboardDemo";
 import LeadForm from "@/app/components/LeadForm";
 import ContactBlock from "@/app/components/ContactBlock";
-import CountdownBanner from "@/app/components/CountdownBanner";
+import { CountdownBanner } from "@/app/components/CountdownBanner";
 import FAQSection from "@/app/components/FAQSection";
+import ExperimentView from "@/app/components/ExperimentView";
+import { PRODUCT, BADGES, BENEFITS, FEATURES, FUTURE, TESTIMONIALS, PARTNER_SEALS, FAQ } from "@/lib/constants";
+import { EXPERIMENTS } from "@/lib/ab";
 
-export default function Page() {
+export default async function Page() {
   const itemOffer = [
     { item_id: "pfc_avancado", item_name: PRODUCT.name, quantity: 1, price: PRODUCT.offerPrice },
   ];
   const itemRegular = [
     { item_id: "pfc_avancado", item_name: PRODUCT.name, quantity: 1, price: PRODUCT.price },
   ];
+
+  const cookieStore = await cookies();
+  const heroVariant =
+    (cookieStore.get("ab_test_hero_headline")?.value as "A" | "B" | undefined) ?? "A";
+  const hero = EXPERIMENTS.hero_headline.variants[heroVariant];
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-emerald-50 text-zinc-900">
@@ -50,44 +60,48 @@ export default function Page() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: FAQ.map((item) => ({
-              "@type": "Question",
-              name: item.q,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: item.a,
-              },
-            })),
+            mainEntity: FAQ.flatMap((cat) =>
+              cat.items.map((item) => ({
+                "@type": "Question",
+                name: item.q,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: item.a,
+                },
+              }))
+            ),
           }),
         }}
       />
 
-      {/* Top Bar / Offer */}
+      {/* Top Bar / Offer — regra real: data fixa e verificável */}
       <CountdownBanner
         price={PRODUCT.price}
         offerPrice={PRODUCT.offerPrice}
         label="Oferta de lançamento"
+        deadline={PRODUCT.offerDeadline}
       />
 
       {/* Hero */}
+      <ExperimentView experiment="hero_headline" variant={heroVariant} />
       <Section className="py-14 md:py-20">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800 shadow-sm">
-              <span>🧮</span>
-              <span>Controle de caixa para o dia a dia</span>
+              <span>🚀</span>
+              <span>{PRODUCT.hero.badge}</span>
             </div>
-            <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight">{PRODUCT.name}</h1>
-            <p className="mt-4 text-lg md:text-xl text-zinc-700">{PRODUCT.tagline}</p>
+            <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight">{hero.title}</h1>
+            <p className="mt-4 text-lg md:text-xl text-zinc-700">{hero.subtitle}</p>
             <ul className="mt-6 space-y-2 text-zinc-700">
-              <li className="flex gap-3"><span>✔️</span><span>Comece com um passo a passo simples sem curva de aprendizado.</span></li>
-              <li className="flex gap-3"><span>✔️</span><span>Veja onde está o dinheiro, quais gastos pesam e como agir.</span></li>
-              <li className="flex gap-3"><span>✔️</span><span>Dashboard e gráficos claros para decidir com confiança.</span></li>
+              <li className="flex gap-3"><span>✔️</span><span>Abandone o controle manual lento e confuso.</span></li>
+              <li className="flex gap-3"><span>✔️</span><span>Entenda seu lucro real em menos de 10 minutos por dia.</span></li>
+              <li className="flex gap-3"><span>✔️</span><span>Dashboard visual para tomar decisões sem medo.</span></li>
             </ul>
             <div className="mt-8 flex flex-wrap items-end gap-4">
               <CTAButton
-                label={`Garantir por R$ ${PRODUCT.offerPrice.toFixed(2)}`}
-                href={`${PRODUCT.checkout.offer}?utm_source=site&utm_medium=hero_btn&utm_campaign=launch_offer_v3`}
+                label={hero.cta}
+                href={`${PRODUCT.checkout.offer}?utm_source=site&utm_medium=hero_btn&utm_campaign=launch_offer_v3&ab_variant=${heroVariant}`}
                 value={PRODUCT.offerPrice}
                 items={itemOffer}
                 location="hero"
@@ -98,6 +112,11 @@ export default function Page() {
                 <div className="line-through">R$ {PRODUCT.price.toFixed(2)}</div>
                 <div className="font-semibold">Oferta por tempo limitado</div>
               </div>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-4 text-xs font-medium text-emerald-800">
+              <span className="flex items-center gap-1">🛡️ 7 dias de garantia</span>
+              <span className="flex items-center gap-1">💰 Pagamento único</span>
+              <span className="flex items-center gap-1">⚡ Entrega imediata</span>
             </div>
             <div className="mt-3 flex flex-wrap gap-2 text-xs">
               {BADGES.map((b) => (
@@ -121,6 +140,9 @@ export default function Page() {
         </div>
       </Section>
 
+      {/* Segment Benefits */}
+      <SegmentBenefits className="-mt-14 md:-mt-20" />
+
       {/* Benefits */}
       <Section id="beneficios" title="Benefícios">
         <div className="grid md:grid-cols-3 gap-6">
@@ -132,6 +154,9 @@ export default function Page() {
           ))}
         </div>
       </Section>
+
+      {/* Dashboard Demo */}
+      <DashboardDemo />
 
       {/* Features */}
       <Section id="recursos" title="Dentro da planilha">
@@ -160,9 +185,16 @@ export default function Page() {
 
       {/* Testimonials */}
       <Section title="Quem já usou aprovou" center>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="mb-8 grid md:grid-cols-3 gap-6">
           {TESTIMONIALS.map((t) => (
-            <TestimonialCard key={t.n} n={t.n} t={t.t} d={t.d} />
+            <TestimonialCard key={t.n} n={t.n} t={t.t} d={t.d} context={t.context} initial={t.initial} />
+          ))}
+        </div>
+        <div className="mx-auto flex flex-wrap items-center justify-center gap-3 border-t pt-6">
+          {PARTNER_SEALS.map((seal) => (
+            <span key={seal} className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">
+              {seal}
+            </span>
           ))}
         </div>
       </Section>
@@ -184,7 +216,7 @@ export default function Page() {
             features={["Planilha completa pronta para uso", "Guia de início rápido", "Garantia 7 dias"]}
             cta={{
               label: "Garantir a oferta",
-              href: `${PRODUCT.checkout.offer}?utm_source=site&utm_medium=pricing_card&utm_campaign=launch_offer_v3`,
+              href: `${PRODUCT.checkout.offer}?utm_source=site&utm_medium=pricing_card&utm_campaign=launch_offer_v3&ab_variant=${heroVariant}`,
               value: PRODUCT.offerPrice,
               items: itemOffer,
               location: "pricing_offer",
@@ -201,7 +233,7 @@ export default function Page() {
             features={["Planilha completa pronta para uso", "Guia de início rápido"]}
             cta={{
               label: "Comprar agora",
-              href: `${PRODUCT.checkout.full}?utm_source=site&utm_medium=pricing_card&utm_campaign=standard_checkout_v3`,
+              href: `${PRODUCT.checkout.full}?utm_source=site&utm_medium=pricing_card&utm_campaign=standard_checkout_v3&ab_variant=${heroVariant}`,
               value: PRODUCT.price,
               items: itemRegular,
               location: "pricing_regular",
@@ -219,7 +251,7 @@ export default function Page() {
           <p className="mt-2 text-zinc-700">Leve a planilha hoje com oferta de lançamento.</p>
           <CTAButton
             label={`Garantir por R$ ${PRODUCT.offerPrice.toFixed(2)}`}
-            href={`${PRODUCT.checkout.offer}?utm_source=site&utm_medium=final_cta&utm_campaign=launch_offer_v3`}
+            href={`${PRODUCT.checkout.offer}?utm_source=site&utm_medium=final_cta&utm_campaign=launch_offer_v3&ab_variant=${heroVariant}`}
             value={PRODUCT.offerPrice}
             items={itemOffer}
             location="final_cta"
@@ -227,7 +259,11 @@ export default function Page() {
             promotionId="launch_offer_v3"
             className="mt-6"
           />
-          <div className="mt-2 text-xs text-zinc-600">Sem mensalidade. Pagamento único.</div>
+          <div className="mt-3 flex flex-wrap justify-center gap-6 text-xs font-medium text-emerald-800">
+            <span>🛡️ 7 dias de garantia incondicional</span>
+            <span>💰 Pagamento único (sem mensalidade)</span>
+            <span>⚡ Acesso e entrega imediata</span>
+          </div>
         </div>
       </Section>
 

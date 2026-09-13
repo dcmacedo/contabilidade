@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Turnstile from "react-turnstile";
 import { gaEvent } from "@/lib/ga";
 
 type LeadPayload = {
@@ -11,6 +12,7 @@ type LeadPayload = {
   consent: boolean;
   company?: string; // honeypot
   source?: string;
+  cf_token?: string;
 
   utm_source?: string;
   utm_medium?: string;
@@ -65,6 +67,11 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
     if (!data.name || !data.email) {
       setOk(false);
       setMsg("Preencha nome e e-mail.");
+      return;
+    }
+    if (!data.cf_token) {
+      setOk(false);
+      setMsg("Por favor, valide o CAPTCHA.");
       return;
     }
     setLoading(true);
@@ -171,6 +178,11 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
           <Link href="/politica-de-privacidade" className="underline">política de privacidade</Link>.
         </label>
       </div>
+
+      <Turnstile
+        sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
+        onVerify={(token) => setData((d) => ({ ...d, cf_token: token }))}
+      />
 
       <button
         type="submit"
