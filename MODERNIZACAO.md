@@ -207,7 +207,7 @@ Aumentar visibilidade orgânica, remover ruídos de rastreamento e garantir que 
 - [x] Adicionar FAQ sobre compatibilidade, instalação, suporte, " → Note the existing markdown format.
 - [x] Tornar garantia, pagamento único e entrega imediata mais visíveis.
 - [ ] Criar CTA persistente em mobile sem bloquear o conteúdo.
-- [ ] Testar variações de headline, oferta e CTA com eventos de conversão.
+- [x] Testar variações de headline, oferta e CTA com eventos de conversão.
 - [ ] Revisar o countdown e substituir urgência artificial por uma oferta com regra real e verificável.
 
 ### Critérios de aceite

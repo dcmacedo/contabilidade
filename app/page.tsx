@@ -1,5 +1,6 @@
 
 import Image from "next/image";
+import { cookies } from "next/headers";
 import Section from "@/app/components/Section";
 import Badge from "@/app/components/Badge";
 import FeatureCard from "@/app/components/FeatureCard";
@@ -12,15 +13,22 @@ import LeadForm from "@/app/components/LeadForm";
 import ContactBlock from "@/app/components/ContactBlock";
 import CountdownBanner from "@/app/components/CountdownBanner";
 import FAQSection from "@/app/components/FAQSection";
+import ExperimentView from "@/app/components/ExperimentView";
 import { PRODUCT, BADGES, BENEFITS, FEATURES, FUTURE, TESTIMONIALS, PARTNER_SEALS, FAQ } from "@/lib/constants";
+import { EXPERIMENTS } from "@/lib/ab";
 
-export default function Page() {
+export default async function Page() {
   const itemOffer = [
     { item_id: "pfc_avancado", item_name: PRODUCT.name, quantity: 1, price: PRODUCT.offerPrice },
   ];
   const itemRegular = [
     { item_id: "pfc_avancado", item_name: PRODUCT.name, quantity: 1, price: PRODUCT.price },
   ];
+
+  const cookieStore = await cookies();
+  const heroVariant =
+    (cookieStore.get("ab_test_hero_headline")?.value as "A" | "B" | undefined) ?? "A";
+  const hero = EXPERIMENTS.hero_headline.variants[heroVariant];
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-emerald-50 text-zinc-900">
@@ -74,6 +82,7 @@ export default function Page() {
       />
 
       {/* Hero */}
+      <ExperimentView experiment="hero_headline" variant={heroVariant} />
       <Section className="py-14 md:py-20">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
@@ -81,8 +90,8 @@ export default function Page() {
               <span>🚀</span>
               <span>{PRODUCT.hero.badge}</span>
             </div>
-            <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight">{PRODUCT.hero.title}</h1>
-            <p className="mt-4 text-lg md:text-xl text-zinc-700">{PRODUCT.hero.subtitle}</p>
+            <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight">{hero.title}</h1>
+            <p className="mt-4 text-lg md:text-xl text-zinc-700">{hero.subtitle}</p>
             <ul className="mt-6 space-y-2 text-zinc-700">
               <li className="flex gap-3"><span>✔️</span><span>Abandone o controle manual lento e confuso.</span></li>
               <li className="flex gap-3"><span>✔️</span><span>Entenda seu lucro real em menos de 10 minutos por dia.</span></li>
@@ -90,8 +99,8 @@ export default function Page() {
             </ul>
             <div className="mt-8 flex flex-wrap items-end gap-4">
               <CTAButton
-                label={`Garantir por R$ ${PRODUCT.offerPrice.toFixed(2)}`}
-                href={`${PRODUCT.checkout.offer}?utm_source=site&utm_medium=hero_btn&utm_campaign=launch_offer_v3`}
+                label={hero.cta}
+                href={`${PRODUCT.checkout.offer}?utm_source=site&utm_medium=hero_btn&utm_campaign=launch_offer_v3&ab_variant=${heroVariant}`}
                 value={PRODUCT.offerPrice}
                 items={itemOffer}
                 location="hero"
@@ -206,7 +215,7 @@ export default function Page() {
             features={["Planilha completa pronta para uso", "Guia de início rápido", "Garantia 7 dias"]}
             cta={{
               label: "Garantir a oferta",
-              href: `${PRODUCT.checkout.offer}?utm_source=site&utm_medium=pricing_card&utm_campaign=launch_offer_v3`,
+              href: `${PRODUCT.checkout.offer}?utm_source=site&utm_medium=pricing_card&utm_campaign=launch_offer_v3&ab_variant=${heroVariant}`,
               value: PRODUCT.offerPrice,
               items: itemOffer,
               location: "pricing_offer",
@@ -223,7 +232,7 @@ export default function Page() {
             features={["Planilha completa pronta para uso", "Guia de início rápido"]}
             cta={{
               label: "Comprar agora",
-              href: `${PRODUCT.checkout.full}?utm_source=site&utm_medium=pricing_card&utm_campaign=standard_checkout_v3`,
+              href: `${PRODUCT.checkout.full}?utm_source=site&utm_medium=pricing_card&utm_campaign=standard_checkout_v3&ab_variant=${heroVariant}`,
               value: PRODUCT.price,
               items: itemRegular,
               location: "pricing_regular",
@@ -241,7 +250,7 @@ export default function Page() {
           <p className="mt-2 text-zinc-700">Leve a planilha hoje com oferta de lançamento.</p>
           <CTAButton
             label={`Garantir por R$ ${PRODUCT.offerPrice.toFixed(2)}`}
-            href={`${PRODUCT.checkout.offer}?utm_source=site&utm_medium=final_cta&utm_campaign=launch_offer_v3`}
+            href={`${PRODUCT.checkout.offer}?utm_source=site&utm_medium=final_cta&utm_campaign=launch_offer_v3&ab_variant=${heroVariant}`}
             value={PRODUCT.offerPrice}
             items={itemOffer}
             location="final_cta"
