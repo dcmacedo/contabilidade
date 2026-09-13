@@ -52,14 +52,16 @@ export default function Page() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: FAQ.map((item) => ({
-              "@type": "Question",
-              name: item.q,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: item.a,
-              },
-            })),
+            mainEntity: FAQ.flatMap((cat) =>
+              cat.items.map((item) => ({
+                "@type": "Question",
+                name: item.q,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: item.a,
+                },
+              }))
+            ),
           }),
         }}
       />
@@ -100,6 +102,11 @@ export default function Page() {
                 <div className="line-through">R$ {PRODUCT.price.toFixed(2)}</div>
                 <div className="font-semibold">Oferta por tempo limitado</div>
               </div>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-4 text-xs font-medium text-emerald-800">
+              <span className="flex items-center gap-1">🛡️ 7 dias de garantia</span>
+              <span className="flex items-center gap-1">💰 Pagamento único</span>
+              <span className="flex items-center gap-1">⚡ Entrega imediata</span>
             </div>
             <div className="mt-3 flex flex-wrap gap-2 text-xs">
               {BADGES.map((b) => (
@@ -242,7 +249,11 @@ export default function Page() {
             promotionId="launch_offer_v3"
             className="mt-6"
           />
-          <div className="mt-2 text-xs text-zinc-600">Sem mensalidade. Pagamento único.</div>
+          <div className="mt-3 flex flex-wrap justify-center gap-6 text-xs font-medium text-emerald-800">
+            <span>🛡️ 7 dias de garantia incondicional</span>
+            <span>💰 Pagamento único (sem mensalidade)</span>
+            <span>⚡ Acesso e entrega imediata</span>
+          </div>
         </div>
       </Section>
 

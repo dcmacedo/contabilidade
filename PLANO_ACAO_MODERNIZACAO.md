@@ -13,8 +13,8 @@ Baseado no arquivo `MODERNIZACAO.md`, os seguintes itens ainda não foram implem
 | **Fase 4** | Destacar benefícios específicos para MEI, autônomo e pequeno negócio | ✅ Concluído |
 | **Fase 4** | Adicionar demonstração mais rica do dashboard e do fluxo de uso | ✅ Concluído |
 | **Fase 4** | Organizar provas sociais com nome ou contexto verificável | ✅ Concluído |
-| **Fase 4** | Adicionar FAQ sobre compatibilidade, instalação, suporte, garantia e reembolso | ❌ Pendente |
-| **Fase 4** | Tornar garantia, pagamento único e entrega imediata mais visíveis | ❌ Pendente |
+| **Fase 4** | Adicionar FAQ sobre compatibilidade, instalação, suporte, garantia e reembolso | ✅ Concluído |
+| **Fase 4** | Tornar garantia, pagamento único e entrega imediata mais visíveis | ✅ Concluído |
 | **Fase 4** | Criar CTA persistente em mobile sem bloquear o conteúdo | ❌ Pendente |
 | **Fase 4** | Testar variações de headline, oferta e CTA com eventos de conversão | ❌ Pendente |
 | **Fase 4** | Revisar o countdown e substituir urgência artificial por uma oferta com regra real | ❌ Pendente |

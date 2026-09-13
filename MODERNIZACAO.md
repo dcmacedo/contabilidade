@@ -204,8 +204,8 @@ Aumentar visibilidade orgânica, remover ruídos de rastreamento e garantir que 
 - [ ] Destacar benefícios específicos para MEI, autônomo e pequeno negócio.
 - [x] Adicionar demonstração mais rica do dashboard e do fluxo de uso.
 - [x] Organizar provas sociais com nome ou contexto verificável, quando autorizado.
-- [ ] Adicionar FAQ sobre compatibilidade, instalação, suporte, garantia e reembolso.
-- [ ] Tornar garantia, pagamento único e entrega imediata mais visíveis.
+- [x] Adicionar FAQ sobre compatibilidade, instalação, suporte, " → Note the existing markdown format.
+- [x] Tornar garantia, pagamento único e entrega imediata mais visíveis.
 - [ ] Criar CTA persistente em mobile sem bloquear o conteúdo.
 - [ ] Testar variações de headline, oferta e CTA com eventos de conversão.
 - [ ] Revisar o countdown e substituir urgência artificial por uma oferta com regra real e verificável.

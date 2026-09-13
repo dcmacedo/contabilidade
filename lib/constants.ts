@@ -118,23 +118,59 @@ export const BRAND = {
 
 export const FAQ = [
     {
-        q: "Preciso pagar mensalidade?",
-        a: "Não. O pagamento é único. Você compra a planilha uma vez e tem acesso vitalício à versão adquirida."
+        category: "Compatibilidade",
+        items: [
+            {
+                q: "Funciona no Excel e no Google Sheets?",
+                a: "Sim, ela foi desenvolvida para ser compatível com as versões recentes do Excel e também funciona perfeitamente ao ser importada no Google Sheets.",
+            },
+            {
+                q: "Qual sistema operacional preciso?",
+                a: "Funciona no Windows, macOS e Linux. Também pode ser acessado pelo Google Sheets em qualquer dispositivo com navegador.",
+            },
+        ],
     },
     {
-        q: "Como recebo a planilha?",
-        a: "Assim que o pagamento for confirmado (imediato para Pix e Cartão), você recebe um e-mail da Kiwify com o link para download."
+        category: "Instalação",
+        items: [
+            {
+                q: "Como recebo a planilha?",
+                a: "Assim que o pagamento for confirmado (imediato para Pix e Cartão), você recebe um e-mail da Kiwify com o link para download.",
+            },
+            {
+                q: "Preciso instalar algo?",
+                a: "Não. O download é direto do Kiwify. Basta abrir o arquivo no Excel ou Google Sheets e começar.",
+            },
+        ],
     },
     {
-        q: "Funciona no Excel e no Google Sheets?",
-        a: "Sim, ela foi desenvolvida para ser compatível com as versões recentes do Excel e também funciona perfeitamente ao ser importada no Google Sheets."
+        category: "Suporte",
+        items: [
+            {
+                q: "Tem suporte?",
+                a: "Sim, oferecemos suporte básico por e-mail para dúvidas sobre a instalação e uso inicial da planilha.",
+            },
+            {
+                q: "Como entro em contato?",
+                a: "Envie um e-mail para contato@pv.dcmacedo.com.br ou use o WhatsApp disponível na página de contato.",
+            },
+        ],
     },
     {
-        q: "Tem suporte?",
-        a: "Sim, oferecemos suporte básico por e-mail para dúvidas sobre a instalação e uso inicial da planilha."
+        category: "Garantia e Reembolso",
+        items: [
+            {
+                q: "E se eu não gostar?",
+                a: "Você tem 7 dias de garantia incondicional. Se não for o que você esperava, devolvemos seu dinheiro via Kiwify.",
+            },
+            {
+                q: "Como solicito o reembolso?",
+                a: "Entre em contato com o suporte em até 7 dias após a compra. O processo é simples e feito diretamente pela Kiwify.",
+            },
+            {
+                q: "A garantia cobre o que?",
+                a: "A garantia de 7 dias cobre a compatibilidade e funcionamento básico da planilha conforme descrito na página.",
+            },
+        ],
     },
-    {
-        q: "E se eu não gostar?",
-        a: "Você tem 7 dias de garantia incondicional. Se não for o que você esperava, devolvemos seu dinheiro via Kiwify."
-    }
 ] as const;
