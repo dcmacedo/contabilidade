@@ -171,7 +171,7 @@ Aumentar visibilidade orgânica, remover ruídos de rastreamento e garantir que 
 - [x] Padronizar eventos do funil: visualização, clique no CTA, checkout iniciado, lead enviado e compra concluída.
 - [x] Persistir UTMs de forma consistente durante a jornada.
 - [x] Criar um painel ou rotina de conferência de leads e conversões.
-- [ ] Validar URLs de compartilhamento social e imagem Open Graph em produção.
+- [x] Validar URLs de compartilhamento social e imagem Open Graph em produção.
 
 #### 3.3 Sequência sugerida
 1. Ajustar domínio e metadados canônicos.

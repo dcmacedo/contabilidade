@@ -65,7 +65,7 @@ export const metadata: Metadata = {
       "Controle financeiro prático com dashboard, relatórios e gráficos.",
     images: [
       {
-        url: "/Dashboard.jpg",
+        url: new URL("/Dashboard.jpg", siteUrl).toString(),
         width: 1280,
         height: 720,
         alt: "Dashboard da planilha",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     title: "Planilha de Fluxo de Caixa Avançado",
     description:
       "Controle financeiro prático com dashboard, relatórios e gráficos.",
-    images: ["/Dashboard.jpg"],
+    images: [new URL("/Dashboard.jpg", siteUrl).toString()],
   },
   robots: { index: true, follow: true },
 };
