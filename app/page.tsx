@@ -74,15 +74,15 @@ export default function Page() {
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800 shadow-sm">
-              <span>🧮</span>
-              <span>Controle de caixa para o dia a dia</span>
+              <span>🚀</span>
+              <span>{PRODUCT.hero.badge}</span>
             </div>
-            <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight">{PRODUCT.name}</h1>
-            <p className="mt-4 text-lg md:text-xl text-zinc-700">{PRODUCT.tagline}</p>
+            <h1 className="mt-4 text-3xl md:text-5xl font-extrabold leading-tight">{PRODUCT.hero.title}</h1>
+            <p className="mt-4 text-lg md:text-xl text-zinc-700">{PRODUCT.hero.subtitle}</p>
             <ul className="mt-6 space-y-2 text-zinc-700">
-              <li className="flex gap-3"><span>✔️</span><span>Comece com um passo a passo simples sem curva de aprendizado.</span></li>
-              <li className="flex gap-3"><span>✔️</span><span>Veja onde está o dinheiro, quais gastos pesam e como agir.</span></li>
-              <li className="flex gap-3"><span>✔️</span><span>Dashboard e gráficos claros para decidir com confiança.</span></li>
+              <li className="flex gap-3"><span>✔️</span><span>Abandone o controle manual lento e confuso.</span></li>
+              <li className="flex gap-3"><span>✔️</span><span>Entenda seu lucro real em menos de 10 minutos por dia.</span></li>
+              <li className="flex gap-3"><span>✔️</span><span>Dashboard visual para tomar decisões sem medo.</span></li>
             </ul>
             <div className="mt-8 flex flex-wrap items-end gap-4">
               <CTAButton

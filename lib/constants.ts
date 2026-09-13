@@ -1,7 +1,12 @@
 export const PRODUCT = {
     name: "Planilha de Fluxo de Caixa Avançado",
     tagline:
-        "Clareza total do dinheiro que entra e sai, decida com segurança todo mês.",
+        "Controle financeiro prático para MEI e autônomos: tenha clareza total do seu caixa em minutos, sem complicação.",
+    hero: {
+        badge: "Para MEI, Autônomos e Pequenos Negócios",
+        title: "Chega de perder horas com planilhas complexas",
+        subtitle: "A ferramenta definitiva para você ter clareza total do dinheiro que entra e sai, e decidir com segurança o futuro do seu negócio.",
+    },
     price: 29.9,
     offerPrice: 9.9,
     checkout: {
@@ -9,7 +14,15 @@ export const PRODUCT = {
         offer: "https://pay.kiwify.com.br/5zOJENA",
     },
     domain: "https://pv.dcmacedo.com.br/",
-} as const;
+} as {
+    name: string;
+    tagline: string;
+    hero: { badge: string; title: string; subtitle: string };
+    price: number;
+    offerPrice: number;
+    checkout: { full: string; offer: string };
+    domain: string;
+};
 
 
 export const BADGES = [

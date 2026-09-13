@@ -9,7 +9,7 @@ Baseado no arquivo `MODERNIZACAO.md`, os seguintes itens ainda não foram implem
 | **Fase 1** | Avaliar CAPTCHA ou proteção equivalente contra automação | ✅ Concluído |
 | **Fase 3** | Criar um painel ou rotina de conferência de leads e conversões | ✅ Concluído |
 | **Fase 3** | Validar URLs de compartilhamento social e imagem Open Graph em produção | ❌ Pendente |
-| **Fase 4** | Reescrever o hero para comunicar público, problema e resultado em poucos segundos | ❌ Pendente |
+| **Fase 4** | Reescrever o hero para comunicar público, problema e resultado em poucos segundos | ✅ Concluído |
 | **Fase 4** | Destacar benefícios específicos para MEI, autônomo e pequeno negócio | ❌ Pendente |
 | **Fase 4** | Adicionar demonstração mais rica do dashboard e do fluxo de uso | ❌ Pendente |
 | **Fase 4** | Organizar provas sociais com nome ou contexto verificável | ❌ Pendente |
