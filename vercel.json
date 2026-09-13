@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/leads/report?token=SEU_TOKEN_AQUI&email=weekly",
+      "schedule": "0 0 * * 1"
+    }
+  ]
+}

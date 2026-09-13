@@ -66,6 +66,32 @@ async function ensureHeader() {
   }
 }
 
+export type LeadRow = Record<string, string>;
+
+export async function readLeadsFromSheet(): Promise<LeadRow[]> {
+  const spreadsheetId = requireServerEnv("GOOGLE_SHEETS_ID");
+  const sheetName = process.env.GOOGLE_SHEETS_TAB || "Leads";
+  const sheets = getSheets();
+
+  const response = await sheets.spreadsheets.values.get({
+    spreadsheetId,
+    range: `${sheetName}!A1:O`,
+  });
+
+  const values = response.data.values;
+  if (!values || values.length <= 1) return [];
+
+  const rows: LeadRow[] = [];
+  for (let i = 1; i < values.length; i++) {
+    const row: LeadRow = {};
+    HEADER.forEach((col, idx) => {
+      row[col] = values[i][idx] || "";
+    });
+    rows.push(row);
+  }
+  return rows;
+}
+
 export async function appendLeadToSheet(values: (string | number | boolean)[]) {
   const spreadsheetId = requireServerEnv("GOOGLE_SHEETS_ID");
   const sheetName = process.env.GOOGLE_SHEETS_TAB || "Leads";

@@ -111,7 +111,7 @@ A landing page tem boa base de componentes e imagens reais do produto, mas pode 
 - [x] Escapar ou sanitizar todos os valores usados no HTML do Resend.
 - [x] Adicionar rate limiting por IP ou por janela de tempo.
 - [x] Definir limite de tamanho do corpo da requisição.
-- [ ] Avaliar CAPTCHA ou proteção equivalente contra automação.
+- [x] Avaliar CAPTCHA ou proteção equivalente contra automação.
 - [x] Remover PII dos logs de produção ou aplicar mascaramento.
 - [x] Diferenciar resposta de sucesso, falha temporária e falha permanente do Google Sheets.
 - [x] Validar variáveis de ambiente no início da execução ou durante o build.
@@ -170,7 +170,7 @@ Aumentar visibilidade orgânica, remover ruídos de rastreamento e garantir que 
 - [x] Implementar consent mode e bloqueio de marketing antes do consentimento.
 - [x] Padronizar eventos do funil: visualização, clique no CTA, checkout iniciado, lead enviado e compra concluída.
 - [x] Persistir UTMs de forma consistente durante a jornada.
-- [ ] Criar um painel ou rotina de conferência de leads e conversões.
+- [x] Criar um painel ou rotina de conferência de leads e conversões.
 - [ ] Validar URLs de compartilhamento social e imagem Open Graph em produção.
 
 #### 3.3 Sequência sugerida
