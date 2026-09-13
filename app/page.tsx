@@ -148,7 +148,7 @@ export default async function Page() {
         <div className="grid md:grid-cols-3 gap-6">
           {BENEFITS.map((b) => (
             <div key={b.title} className="mb-6 rounded-2xl border p-6 bg-white/70 backdrop-blur">
-              <div className="text-xl font-extrabold bg-gradient-to-r from-emerald-600 to-sky-600 bg-clip-text text-transparent">{b.title}</div>
+              <div className="text-xl font-extrabold text-emerald-700">{b.title}</div>
               <div className="mt-2 text-sm text-zinc-700">{b.desc}</div>
             </div>
           ))}
@@ -169,7 +169,7 @@ export default async function Page() {
 
       {/* Future for MEI */}
       <Section>
-        <div className="rounded-3xl border bg-gradient-to-br from-white to-emerald-50 p-8">
+        <div className="rounded-3xl border bg-white p-8">
           <h3 className="text-xl md:text-2xl font-extrabold">Próximas versões: Foco em MEI</h3>
           <p className="mt-2 text-zinc-700">Compre agora e receba atualizações da linha base. Recursos pensados para a rotina do MEI.</p>
           <div className="mt-6 grid md:grid-cols-3 gap-6">
@@ -246,7 +246,7 @@ export default async function Page() {
 
       {/* Final CTA */}
       <Section className="pb-16">
-        <div className="rounded-3xl border bg-gradient-to-br from-sky-50 to-emerald-50 p-8 text-center">
+        <div className="rounded-3xl border bg-white p-8 text-center">
           <h3 className="text-2xl md:text-3xl font-extrabold">Deixe o caixa sob controle</h3>
           <p className="mt-2 text-zinc-700">Leve a planilha hoje com oferta de lançamento.</p>
           <CTAButton

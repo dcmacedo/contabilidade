@@ -18,7 +18,7 @@ export default function ContactBlock() {
   }
 
   return (
-    <div className="rounded-2xl border bg-gradient-to-br from-white to-emerald-50 p-6">
+    <div className="rounded-2xl border bg-white p-6">
       <h4 className="text-lg md:text-xl font-extrabold">Fale com a gente</h4>
       <p className="mt-1 text-sm text-zinc-700">
         Está com alguma dúvida antes de comprar? Podemos ajudar agora.
