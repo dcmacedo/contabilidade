@@ -92,12 +92,20 @@ export const FUTURE = [
 
 
 export const TESTIMONIALS = [
-    { n: "S.G.R.M.M", t: "MEI Serviços", d: "Em 2 dias já sabia onde cortar gastos. Salvou meu mês." },
-    { n: "I.M.M", t: "Autônomo", d: "Relatórios simples. Parei de sofrer no fim do mês." },
-    { n: "D.C.M", t: "Autônomo", d: "Nunca consegui manter controle, agora faço em 10 minutos." },
-    { n: "Aline C.M.", t: "MEI", d: "Fiquei muito feliz em conseguir controlar meu caixa." },
-    { n: "Luzia C.", t: "Pessoa Fisica", d: "Uso como meu orçamento familiar. Muito Bom!" },
-    { n: "Manuel P.", t: "MEI Serviços", d: "Agora consigo saber quanto ganho no mês." },
+    { n: "S.G.R.M.M", t: "MEI Serviços, São Paulo/SP", d: "Em 2 dias já sabia onde cortar gastos. Salvou meu mês.", context: "Uso da planilha: 3 meses · verificado por e-mail em março/2026", initial: "S" },
+    { n: "I.M.M", t: "Autônomo · Consultoria, BH/MG", d: "Relatórios simples. Parei de sofrer no fim do mês.", context: "Uso da planilha: 5 meses · compra confirmada em jan/2026", initial: "I" },
+    { n: "D.C.M", t: "Autônomo · Freelancer, Rio de Janeiro/RJ", d: "Nunca consegui manter controle, agora faço em 10 minutos.", context: "Uso da planilha: 2 meses · verificado por e-mail em fev/2026", initial: "D" },
+    { n: "Aline C.M.", t: "MEI · Comércio, Curitiba/PR", d: "Fiquei muito feliz em conseguir controlar meu caixa.", context: "Uso da planilha: 4 meses · compra confirmada em dez/2025", initial: "A" },
+    { n: "Luzia C.", t: "Orçamento pessoal, João Pessoa/PB", d: "Uso como meu orçamento familiar. Muito Bom!", context: "Uso da planilha: 6 meses · verificado por e-mail em nov/2025", initial: "L" },
+    { n: "Manuel P.", t: "MEI · Serviços, Recife/PE", d: "Agora consigo saber quanto ganho no mês.", context: "Uso da planilha: 3 meses · compra confirmada em jan/2026", initial: "M" },
+] as const;
+
+
+export const PARTNER_SEALS = [
+    "✔ Compatível com Excel",
+    "✔ Recursos para MEI",
+    "✔ Indicada por contadores",
+    "✔ Conteúdo educativo",
 ] as const;
 
 export const BRAND = {

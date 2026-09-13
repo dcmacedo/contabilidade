@@ -12,7 +12,7 @@ import LeadForm from "@/app/components/LeadForm";
 import ContactBlock from "@/app/components/ContactBlock";
 import CountdownBanner from "@/app/components/CountdownBanner";
 import FAQSection from "@/app/components/FAQSection";
-import { PRODUCT, BADGES, BENEFITS, FEATURES, FUTURE, TESTIMONIALS, FAQ } from "@/lib/constants";
+import { PRODUCT, BADGES, BENEFITS, FEATURES, FUTURE, TESTIMONIALS, PARTNER_SEALS, FAQ } from "@/lib/constants";
 
 export default function Page() {
   const itemOffer = [
@@ -168,9 +168,16 @@ export default function Page() {
 
       {/* Testimonials */}
       <Section title="Quem já usou aprovou" center>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="mb-8 grid md:grid-cols-3 gap-6">
           {TESTIMONIALS.map((t) => (
-            <TestimonialCard key={t.n} n={t.n} t={t.t} d={t.d} />
+            <TestimonialCard key={t.n} n={t.n} t={t.t} d={t.d} context={t.context} initial={t.initial} />
+          ))}
+        </div>
+        <div className="mx-auto flex flex-wrap items-center justify-center gap-3 border-t pt-6">
+          {PARTNER_SEALS.map((seal) => (
+            <span key={seal} className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-800">
+              {seal}
+            </span>
           ))}
         </div>
       </Section>
