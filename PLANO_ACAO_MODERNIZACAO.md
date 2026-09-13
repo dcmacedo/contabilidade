@@ -17,7 +17,7 @@ Baseado no arquivo `MODERNIZACAO.md`, os seguintes itens ainda não foram implem
 | **Fase 4** | Tornar garantia, pagamento único e entrega imediata mais visíveis | ✅ Concluído |
 | **Fase 4** | Criar CTA persistente em mobile sem bloquear o conteúdo | ❌ Pendente |
 | **Fase 4** | Testar variações de headline, oferta e CTA com eventos de conversão | ✅ Concluído |
-| **Fase 4** | Revisar o countdown e substituir urgência artificial por uma oferta com regra real | ❌ Pendente |
+| **Fase 4** | Revisar o countdown e substituir urgência artificial por uma oferta com regra real | ✅ Concluído |
 | **Fase 5** | Definir tokens de cor, tipografia, espaçamento e estados em `globals.css` | ❌ Pendente |
 | **Fase 5** | Usar de forma consistente as fontes já carregadas pelo layout | ❌ Pendente |
 | **Fase 5** | Reduzir repetição de gradientes e cards arredondados | ❌ Pendente |

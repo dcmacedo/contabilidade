@@ -11,7 +11,7 @@ import { SegmentBenefits } from "@/app/components/SegmentBenefits";
 import { DashboardDemo } from "@/app/components/DashboardDemo";
 import LeadForm from "@/app/components/LeadForm";
 import ContactBlock from "@/app/components/ContactBlock";
-import CountdownBanner from "@/app/components/CountdownBanner";
+import { CountdownBanner } from "@/app/components/CountdownBanner";
 import FAQSection from "@/app/components/FAQSection";
 import ExperimentView from "@/app/components/ExperimentView";
 import { PRODUCT, BADGES, BENEFITS, FEATURES, FUTURE, TESTIMONIALS, PARTNER_SEALS, FAQ } from "@/lib/constants";
@@ -74,11 +74,12 @@ export default async function Page() {
         }}
       />
 
-      {/* Top Bar / Offer */}
+      {/* Top Bar / Offer — regra real: data fixa e verificável */}
       <CountdownBanner
         price={PRODUCT.price}
         offerPrice={PRODUCT.offerPrice}
         label="Oferta de lançamento"
+        deadline={PRODUCT.offerDeadline}
       />
 
       {/* Hero */}

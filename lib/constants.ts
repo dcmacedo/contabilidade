@@ -9,6 +9,8 @@ export const PRODUCT = {
     },
     price: 29.9,
     offerPrice: 9.9,
+    offerDeadline: new Date("2026-10-15T23:59:59-03:00"), // data fixa e verificável
+    offerQty: 100, // limite de unidades da oferta
     checkout: {
         full: "https://pay.kiwify.com.br/bteZeop",
         offer: "https://pay.kiwify.com.br/5zOJENA",
@@ -20,6 +22,8 @@ export const PRODUCT = {
     hero: { badge: string; title: string; subtitle: string };
     price: number;
     offerPrice: number;
+    offerDeadline: Date;
+    offerQty: number;
     checkout: { full: string; offer: string };
     domain: string;
 };

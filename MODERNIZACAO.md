@@ -208,7 +208,7 @@ Aumentar visibilidade orgânica, remover ruídos de rastreamento e garantir que 
 - [x] Tornar garantia, pagamento único e entrega imediata mais visíveis.
 - [ ] Criar CTA persistente em mobile sem bloquear o conteúdo.
 - [x] Testar variações de headline, oferta e CTA com eventos de conversão.
-- [ ] Revisar o countdown e substituir urgência artificial por uma oferta com regra real e verificável.
+- [x] Revisar o countdown e substituir urgência artificial por uma oferta com regra real e verificável.
 
 ### Critérios de aceite
 
