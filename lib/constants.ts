@@ -40,6 +40,40 @@ export const BENEFITS = [
 ] as const;
 
 
+export const SEGMENT_BENEFITS = {
+    mei: {
+        label: "MEI",
+        icon: "🏷️",
+        color: "from-emerald-500 to-teal-600",
+        benefits: [
+            { title: "Apuração do DAS simplificada", desc: "Cálculo automático do documento de arrecadação mensal." },
+            { title: "Enquadramento e limites", desc: "Acompanhe faturamento vs. teto do MEI em tempo real." },
+            { title: "Notas e recibos organizados", desc: "Emissão e controle de documentos fiscais sem dor de cabeça." },
+        ],
+    },
+    autonomo: {
+        label: "Autônomo",
+        icon: "💼",
+        color: "from-sky-500 to-blue-600",
+        benefits: [
+            { title: "Recebíveis variáveis", desc: "Controle de pagamentos parcelados, Pix e boletos com datas diferentes." },
+            { title: "Gastos por cliente/projeto", desc: "Saiba exatamente quanto cada trabalho custa e rende." },
+            { title: "Reserva para impostos", desc: "Provisão automática de IR e ISS para não ser surpreendido." },
+        ],
+    },
+    pequenoNegocio: {
+        label: "Pequeno Negócio",
+        icon: "🏢",
+        color: "from-violet-500 to-purple-600",
+        benefits: [
+            { title: "Fluxo multi-conta", desc: "Gerencie contas bancárias, caixas e cartões em um só lugar." },
+            { title: "Centros de custo e projeção", desc: "Planeje o mês seguinte com base no histórico real." },
+            { title: "Relatórios para sócios/contador", desc: "Exporte demonstrativos prontos para reunião e contabilidade." },
+        ],
+    },
+} as const;
+
+
 export const FEATURES = [
     { title: "Menu de Opções", key: "menu", desc: "Fluxo guiado para começar em minutos, sem travar.", image: "/MenuFluxoCaixa.jpg" },
     { title: "Lançamentos", key: "lancamentos", desc: "Registre entradas e saídas com validações simples.", image: "/Lancamentos.jpg" },

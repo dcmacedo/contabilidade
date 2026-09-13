@@ -6,11 +6,13 @@ import FeatureCard from "@/app/components/FeatureCard";
 import PricingCard from "@/app/components/PricingCard";
 import CTAButton from "@/app/components/CTAButton";
 import TestimonialCard from "@/app/components/TestimonialCard";
-import { PRODUCT, BADGES, BENEFITS, FEATURES, FUTURE, TESTIMONIALS, FAQ } from "@/lib/constants";
+import { SegmentBenefits } from "@/app/components/SegmentBenefits";
+import { DashboardDemo } from "@/app/components/DashboardDemo";
 import LeadForm from "@/app/components/LeadForm";
 import ContactBlock from "@/app/components/ContactBlock";
 import CountdownBanner from "@/app/components/CountdownBanner";
 import FAQSection from "@/app/components/FAQSection";
+import { PRODUCT, BADGES, BENEFITS, FEATURES, FUTURE, TESTIMONIALS, FAQ } from "@/lib/constants";
 
 export default function Page() {
   const itemOffer = [
@@ -121,6 +123,9 @@ export default function Page() {
         </div>
       </Section>
 
+      {/* Segment Benefits */}
+      <SegmentBenefits className="-mt-14 md:-mt-20" />
+
       {/* Benefits */}
       <Section id="beneficios" title="Benefícios">
         <div className="grid md:grid-cols-3 gap-6">
@@ -132,6 +137,9 @@ export default function Page() {
           ))}
         </div>
       </Section>
+
+      {/* Dashboard Demo */}
+      <DashboardDemo />
 
       {/* Features */}
       <Section id="recursos" title="Dentro da planilha">

@@ -202,7 +202,7 @@ Aumentar visibilidade orgânica, remover ruídos de rastreamento e garantir que 
 
 - [x] Reescrever o hero para comunicar público, problema e resultado em poucos segundos.
 - [ ] Destacar benefícios específicos para MEI, autônomo e pequeno negócio.
-- [ ] Adicionar demonstração mais rica do dashboard e do fluxo de uso.
+- [x] Adicionar demonstração mais rica do dashboard e do fluxo de uso.
 - [ ] Organizar provas sociais com nome ou contexto verificável, quando autorizado.
 - [ ] Adicionar FAQ sobre compatibilidade, instalação, suporte, garantia e reembolso.
 - [ ] Tornar garantia, pagamento único e entrega imediata mais visíveis.

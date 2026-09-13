@@ -1,10 +1,8 @@
 #!/usr/bin/env node
 import http from "http";
 import { spawn } from "child_process";
-import fs from "fs";
-import path from "path";
 
-const TARGET_URL = process.env.TARGET_URL || "https://planilhafinanceirafacil.net.br";
+const TARGET_URL = process.env.TARGET_URL || "https://pv.dcmacedo.com.br";
 
 function fetchHtml(url: string): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -36,7 +34,7 @@ function parseMetaName(html: string, name: string): string | null {
   return match ? match[1] : null;
 }
 
-function checkImageUrl(imgUrl: string): Promise<boolean> => {
+function checkImageUrl(imgUrl) {
   return new Promise((resolve) => {
     http
       .head(imgUrl, (res) => {
@@ -88,11 +86,13 @@ async function main() {
     { name: "twitter:title", fn: parseMetaName },
     { name: "twitter:description", fn: parseMetaName },
     { name: "twitter:image", fn: parseMetaName },
-    { name: "canonical", (html: string) => {
-      const regex = /<link[^>]*rel="canonical"[^>]*href="([^"]*)"/i;
-      const match = html.match(regex);
-      return match ? match[1] : null;
-    }, expected: TARGET_URL },
+    {
+      name: "canonical", fn: (html) => {
+        const regex = /<link[^>]*rel="canonical"[^>]*href="([^"]*)"/i;
+        const match = html.match(regex);
+        return match ? match[1] : null;
+      }, expected: TARGET_URL
+    },
   ];
 
   let allPassed = true;
