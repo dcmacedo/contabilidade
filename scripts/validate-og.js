@@ -2,7 +2,7 @@
 import http from "http";
 import { spawn } from "child_process";
 
-const TARGET_URL = process.env.TARGET_URL || "https://pv.dcmacedo.com.br";
+const TARGET_URL = process.env.TARGET_URL || "http://pv.dcmacedo.com.br";
 
 function fetchHtml(url) {
   return new Promise((resolve, reject) => {
