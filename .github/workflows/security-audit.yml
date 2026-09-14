@@ -1,0 +1,30 @@
+name: Security Audit
+
+on:
+  push:
+    branches: [main, develop]
+  workflow_dispatch:
+
+jobs:
+  audit:
+    name: Auditar dependências
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "latest"
+
+      - name: Buscar alertas de vulnerabilidades
+        id: audit
+        run: |
+          OUTPUT=$(npm audit --omit=dev --json)
+          VULN=$(echo "$OUTPUT" | jq -r '.metadata.vulnerabilities.total // 0')
+          echo "vulnerabilities_count=$VULN" >> $GITHUB_OUTPUT
+          
+          echo "total_output<<EOF" >> $GITHUB_OUTPUT
+          echo "$OUTPUT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT

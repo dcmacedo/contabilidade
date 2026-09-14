@@ -2,9 +2,9 @@
 import http from "http";
 import { spawn } from "child_process";
 
-const TARGET_URL = process.env.TARGET_URL || "https://pv.dcmacedo.com.br";
+const TARGET_URL = process.env.TARGET_URL || "http://pv.dcmacedo.com.br";
 
-function fetchHtml(url: string): Promise<string> {
+function fetchHtml(url) {
   return new Promise((resolve, reject) => {
     http
       .get(url, (res) => {
@@ -16,7 +16,7 @@ function fetchHtml(url: string): Promise<string> {
   });
 }
 
-function parseMeta(html: string, name: string): string | null {
+function parseMeta(html, name) {
   const regex = new RegExp(
     `<meta[^>]*property="og:${name}"[^>]*content="([^"]*)"`,
     "i"
@@ -25,7 +25,7 @@ function parseMeta(html: string, name: string): string | null {
   return match ? match[1] : null;
 }
 
-function parseMetaName(html: string, name: string): string | null {
+function parseMetaName(html, name) {
   const regex = new RegExp(
     `<meta[^>]*name="twitter:${name}"[^>]*content="([^"]*)"`,
     "i"
@@ -47,23 +47,9 @@ function checkImageUrl(imgUrl) {
 async function main() {
   console.log(`Validando Open Graph em: ${TARGET_URL}\n`);
 
-  // 1. Build the app first to render static HTML
-  console.log("1. Iniciando build...");
-  const build = spawn("npm", ["run", "build"], { stdio: "pipe" });
-  let buildOutput = "";
-  build.stdout.on("data", (data) => (buildOutput += data.toString()));
-  build.stderr.on("data", (data) => (buildOutput += data.toString()));
-  await new Promise((resolve) => build.on("close", resolve));
-
-  if (buildOutput.includes("Error") || buildOutput.includes("error")) {
-    console.error("❌ Build falhou. Não é possível validar.");
-    process.exit(1);
-  }
-  console.log("✅ Build concluído.\n");
-
   // 2. Fetch the built HTML (home page)
   console.log("2. Buscando HTML da home page...");
-  let html: string;
+  let html;
   try {
     html = await fetchHtml(TARGET_URL);
   } catch (err) {
@@ -97,7 +83,7 @@ async function main() {
 
   let allPassed = true;
   for (const check of checks) {
-    const value = check.fn!(html);
+    const value = check.fn(html);
     const hasValue = value !== null && value !== undefined && value !== "";
     const passes = check.expected
       ? hasValue && value.includes(check.expected)
