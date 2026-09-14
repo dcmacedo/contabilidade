@@ -1,0 +1,51 @@
+name: Dependência de Segurança e Auditoria
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  npm-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Executar audit
+        run: npm audit --audit-level=moderate
+
+      - name: Buscar alertas de vulnerabilidades
+        id: audit
+        run: |
+          OUTPUT=$(npm audit --omit=dev --json)
+          VULN=$(echo "$OUTPUT" | jq -r '.vuln | length')
+          echo "vulnerabilities_count=$VULN" >> $GITHUB_OUTPUT
+          echo "total_output=$OUTPUT" >> $GITHUB_OUTPUT
+
+      - name: Traduzir impacto
+        if: steps.audit.outputs.vulnerabilities_count > 0
+        run: |
+          echo "::warning::Encontradas ${{ steps.audit.outputs.vulnerabilities_count }} vulnerabilidades no package-lock.json"
+
+          if [ "${{ steps.audit.outputs.vulnerabilities_count }}" -gt 0 ]; then
+            echo "::stop-commands::"
+            echo "::error::Vulnerabilidades não permiten o merge."
+            exit 1
+          fi
