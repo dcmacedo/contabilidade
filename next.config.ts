@@ -4,9 +4,9 @@ const cspHeader = `
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://challenges.cloudflare.com https://static.cloudflareinsights.com;
     script-src-elem 'self' 'unsafe-inline' https://challenges.cloudflare.com https://static.cloudflareinsights.com;
-    style-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     img-src 'self' blob: data: https://pv.dcmacedo.com.br https://challenges.cloudflare.com;
-    font-src 'self' data:;
+    font-src 'self' data: https://fonts.gstatic.com https://challenges.cloudflare.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
