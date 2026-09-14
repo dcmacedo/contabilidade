@@ -34,10 +34,15 @@ jobs:
       - name: Buscar alertas de vulnerabilidades
         id: audit
         run: |
-          OUTPUT=$(npm audit --omit=dev --json)
-          VULN=$(echo "$OUTPUT" | jq -r '.vuln | length')
-          echo "vulnerabilities_count=$VULN" >> $GITHUB_OUTPUT
-          echo "total_output=$OUTPUT" >> $GITHUB_OUTPUT
+            OUTPUT=$(npm audit --omit=dev --json)
+            VULN=$(echo "$OUTPUT" | jq '.vulnerabilities | length')
+            
+            echo "vulnerabilities_count=$VULN" >> $GITHUB_OUTPUT
+            
+            EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+            echo "total_output<<$EOF" >> $GITHUB_OUTPUT
+            echo "$OUTPUT" >> $GITHUB_OUTPUT
+            echo "$EOF" >> $GITHUB_OUTPUT
 
       - name: Traduzir impacto
         if: steps.audit.outputs.vulnerabilities_count > 0
