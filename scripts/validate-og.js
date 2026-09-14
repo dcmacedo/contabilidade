@@ -41,12 +41,23 @@ function parseMetaName(html, nameAttr) {
 
 function checkImageUrl(imgUrl) {
   return new Promise((resolve) => {
-    const client = imgUrl.startsWith("https") ? https : http;
-    client
-      .head(imgUrl, (res) => {
-        resolve(res.statusCode >= 200 && res.statusCode < 400);
-      })
-      .on("error", () => resolve(false));
+    try {
+      const parsedUrl = new URL(imgUrl);
+      const client = parsedUrl.protocol === "https:" ? https : http;
+      
+      const req = client.request(
+        parsedUrl,
+        { method: "HEAD" },
+        (res) => {
+          resolve(res.statusCode >= 200 && res.statusCode < 400);
+        }
+      );
+
+      req.on("error", () => resolve(false));
+      req.end();
+    } catch {
+      resolve(false);
+    }
   });
 }
 
@@ -69,7 +80,7 @@ async function main() {
 
   const checks = [
     { name: "og:title", fn: (h) => parseMetaProperty(h, "og:title"), expected: "Planilha de Fluxo de Caixa Avançado" },
-    { name: "og:description", fn: (h) => parseMetaProperty(h, "og:description"), expected: "Clareza total do dinheiro que entra e sai, decida com segurança todo mês." },
+    { name: "og:description", fn: (h) => parseMetaProperty(h, "og:description"), expected: "Controle financeiro prático com dashboard, relatórios e gráficos."},
     { name: "og:url", fn: (h) => parseMetaProperty(h, "og:url"), expected: expectedDomain },
     { name: "og:type", fn: (h) => parseMetaProperty(h, "og:type"), expected: "website" },
     { name: "og:site_name", fn: (h) => parseMetaProperty(h, "og:site_name"), expected: "Planilha Financeira Fácil" },
