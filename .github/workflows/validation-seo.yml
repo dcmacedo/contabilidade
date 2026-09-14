@@ -32,5 +32,5 @@ jobs:
 
       - name: Validar Open Graph
         env:
-          TARGET_URL: "https://pv.dcmacedo.com.br"
+          TARGET_URL: "http://pv.dcmacedo.com.br"
         run: node scripts/validate-og.js
