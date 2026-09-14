@@ -30,7 +30,18 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Start Next.js server
+        run: |
+          npm run start &
+          SERVER_PID=$!
+          echo "SERVER_PID=$SERVER_PID" >> $GITHUB_ENV
+          sleep 10
+
       - name: Validar Open Graph
         env:
-          TARGET_URL: "http://pv.dcmacedo.com.br"
+          TARGET_URL: "http://localhost:3000"
         run: node scripts/validate-og.js
+
+      - name: Stop Next.js server
+        if: always()
+        run: kill $SERVER_PID

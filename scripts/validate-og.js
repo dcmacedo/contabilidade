@@ -47,20 +47,6 @@ function checkImageUrl(imgUrl) {
 async function main() {
   console.log(`Validando Open Graph em: ${TARGET_URL}\n`);
 
-  // 1. Build the app first to render static HTML
-  console.log("1. Iniciando build...");
-  const build = spawn("npm", ["run", "build"], { stdio: "pipe" });
-  let buildOutput = "";
-  build.stdout.on("data", (data) => (buildOutput += data.toString()));
-  build.stderr.on("data", (data) => (buildOutput += data.toString()));
-  await new Promise((resolve) => build.on("close", resolve));
-
-  if (buildOutput.includes("Error") || buildOutput.includes("error")) {
-    console.error("❌ Build falhou. Não é possível validar.");
-    process.exit(1);
-  }
-  console.log("✅ Build concluído.\n");
-
   // 2. Fetch the built HTML (home page)
   console.log("2. Buscando HTML da home page...");
   let html;
