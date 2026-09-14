@@ -4,6 +4,7 @@ const publicEnvSchema = z.object({
   NEXT_PUBLIC_SITE_URL: z.string().url().default("https://pv.dcmacedo.com.br"),
   NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().optional().default(""),
   NEXT_PUBLIC_ADS_ID: z.string().optional().default(""),
+  NEXT_PUBLIC_TURNSTILE_SITE_KEY: z.string().optional(),
 });
 
 const serverEnvSchema = z.object({
@@ -14,6 +15,7 @@ const serverEnvSchema = z.object({
   RESEND_API_KEY: z.string().optional(),
   RESEND_FROM: z.string().optional(),
   LEAD_NOTIFY_TO: z.string().optional(),
+  TURNSTILE_SECRET_KEY: z.string().optional(),
 });
 
 export const publicEnv = publicEnvSchema.parse({
