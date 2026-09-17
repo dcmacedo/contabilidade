@@ -1,12 +1,28 @@
 @import "tailwindcss";
 
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-active: #1e40af;
+  --color-secondary: #64748b;
+  
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-montserrat);
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-radius: 0.5rem;
+  
+  /* Tokens de Estados - WCAG AA */
+  --state-focus-ring: #2563eb;
+  --state-focus-ring-offset: 2px;
+  --state-shadow-focus: 0 0 0 2px rgba(37, 99, 235, 0.3);
+  --state-transition: all 0.15s ease-in-out;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,9 +35,21 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
+  font-family: var(--font-geist-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-montserrat);
+}
+
+/* Melhorias de acessibilidade */
+button:focus-visible, a:focus-visible, input:focus-visible {
+  outline: 2px solid var(--state-focus-ring);
+  outline-offset: var(--state-focus-ring-offset);
+}
+
+.skip-link {
+  @apply sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded shadow-lg;
 }

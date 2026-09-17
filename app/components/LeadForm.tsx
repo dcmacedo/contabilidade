@@ -119,36 +119,43 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
   return (
     <form onSubmit={onSubmit} className="rounded-2xl border bg-white p-6 space-y-4">
       <div>
-        <label className="block text-sm font-medium text-zinc-700">Nome</label>
+        <label htmlFor="lead-name" className="block text-sm font-medium text-zinc-700">Nome</label>
         <input
+          id="lead-name"
           type="text"
           required
           value={data.name}
           onChange={handleChange("name")}
-          className="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+          aria-describedby={ok === false && !data.name ? "form-error-msg" : undefined}
+          aria-invalid={ok === false && !data.name ? true : undefined}
+          className="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           placeholder="Seu nome"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-zinc-700">E-mail</label>
+        <label htmlFor="lead-email" className="block text-sm font-medium text-zinc-700">E-mail</label>
         <input
+          id="lead-email"
           type="email"
           required
           value={data.email}
           onChange={handleChange("email")}
-          className="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+          aria-describedby={ok === false && !data.email ? "form-error-msg" : undefined}
+          aria-invalid={ok === false && !data.email ? true : undefined}
+          className="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           placeholder="voce@email.com"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-zinc-700">WhatsApp (opcional)</label>
+        <label htmlFor="lead-phone" className="block text-sm font-medium text-zinc-700">WhatsApp (opcional)</label>
         <input
+          id="lead-phone"
           type="tel"
           value={data.phone}
           onChange={handleChange("phone")}
-          className="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+          className="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           placeholder="(xx) xxxxx-xxxx"
         />
       </div>
@@ -171,7 +178,7 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
           required
           checked={data.consent}
           onChange={handleChange("consent")}
-          className="mt-1 h-4 w-4 rounded border-zinc-300 text-emerald-600 focus:ring-emerald-600"
+          className="mt-1 h-4 w-4 rounded border-zinc-300 text-emerald-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
         />
         <label htmlFor="consent" className="text-xs text-zinc-600">
           Aceito receber materiais, conteúdos e comunicações. Li e concordo com a{" "}
@@ -187,13 +194,26 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-2xl bg-gradient-to-r from-emerald-600 to-sky-600 px-6 py-3 text-white font-semibold shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+        className="w-full rounded-2xl bg-gradient-to-r from-emerald-600 to-sky-600 px-6 py-3 text-white font-semibold shadow-lg hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
       >
         {loading ? "Enviando..." : "Quero receber materiais e novidades"}
       </button>
 
-      {ok === true && <p aria-live="polite" className="text-sm text-emerald-700">{msg}</p>}
-      {ok === false && <p aria-live="assertive" className="text-sm text-red-600">{msg}</p>}
+      <div aria-live="polite" aria-atomic="true">
+        {loading && (
+          <p className="text-sm text-zinc-600">Enviando dados...</p>
+        )}
+        {ok === true && (
+          <p id="form-success-msg" role="status" className="text-sm text-emerald-700">
+            {msg}
+          </p>
+        )}
+        {ok === false && (
+          <p id="form-error-msg" role="alert" className="text-sm text-red-600">
+            {msg}
+          </p>
+        )}
+      </div>
 
       <p className="text-[10px] text-zinc-500">Guardamos seu e-mail com segurança.</p>
     </form>

@@ -28,14 +28,14 @@ export default function ContactBlock() {
         <button
           type="button"
           onClick={clickWhatsapp}
-          className="rounded-2xl bg-zinc-900 text-white px-5 py-3 font-semibold shadow hover:opacity-90"
+          className="rounded-2xl bg-zinc-900 text-white px-5 py-3 font-semibold shadow hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
         >
           Conversar no WhatsApp
         </button>
         <button
           type="button"
           onClick={clickEmail}
-          className="rounded-2xl bg-white border px-5 py-3 font-semibold shadow hover:bg-zinc-50"
+          className="rounded-2xl bg-white border px-5 py-3 font-semibold shadow hover:bg-zinc-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
         >
           Enviar e-mail
         </button>
