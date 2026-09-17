@@ -33,3 +33,9 @@ Baseado em grid de 8px:
 
 ## Uso no Tailwind
 As variáveis estão mapeadas no `tailwind.config.js`. Exemplo: `text-primary`, `bg-background`, `p-4` (usa `--space-4`).
+
+## Imagens e Acessibilidade
+- Todas as imagens devem ter atributo `alt` descritivo
+- Imagens informativas: `alt` deve descrever o conteúdo (ex: "Menu de Opções - Preview da funcionalidade")
+- Imagens decorativas: `alt=""`
+- O componente `FeatureCard` aceita `altText` opcional para personalização

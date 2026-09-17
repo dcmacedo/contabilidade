@@ -79,12 +79,12 @@ export const SEGMENT_BENEFITS = {
 
 
 export const FEATURES = [
-    { title: "Menu de Opções", key: "menu", desc: "Fluxo guiado para começar em minutos, sem travar.", image: "/MenuFluxoCaixa.jpg" },
-    { title: "Lançamentos", key: "lancamentos", desc: "Registre entradas e saídas com validações simples.", image: "/Lancamentos.jpg" },
-    { title: "Relatórios", key: "relatorios", desc: "Resumo por período, categorias e centros de custo.", image: "/Relatorio.jpg" },
-    { title: "Dashboard", key: "dashboard", desc: "KPIs essenciais: saldo, receita, despesas, tendência.", image: "/Dashboard.jpg" },
-    { title: "Gráficos", key: "graficos", desc: "Visual limpo das variações mês a mês.", image: "/Graficos.jpg" },
-    { title: "Tabelas Auxiliares", key: "tabelas", desc: "Cadastros e consistência para análises confiáveis.", image: "/TabelasAuxiliares.jpg" },
+    { title: "Menu de Opções", key: "menu", desc: "Fluxo guiado para começar em minutos, sem travar.", image: "/MenuFluxoCaixa.jpg", altText: "Imagem mostrando a interface do Menu de Opções do fluxo de caixa" },
+    { title: "Lançamentos", key: "lancamentos", desc: "Registre entradas e saídas com validações simples.", image: "/Lancamentos.jpg", altText: "Imagem da tela de lançamentos demonstrando registro de entradas e saídas" },
+    { title: "Relatórios", key: "relatorios", desc: "Resumo por período, categorias e centros de custo.", image: "/Relatorio.jpg", altText: "Imagem mostrando relatórios de resumo do fluxo de caixa" },
+    { title: "Dashboard", key: "dashboard", desc: "KPIs essenciais: saldo, receita, despesas, tendência.", image: "/Dashboard.jpg", altText: "Prévia do Dashboard da Planilha de Fluxo de Caixa Avançado" },
+    { title: "Gráficos", key: "graficos", desc: "Visual limpo das variações mês a mês.", image: "/Graficos.jpg", altText: "Imagem de gráficos demonstrando variações mês a mês" },
+    { title: "Tabelas Auxiliares", key: "tabelas", desc: "Cadastros e consistência para análises confiáveis.", image: "/TabelasAuxiliares.jpg", altText: "Imagem das tabelas auxiliares para cadastros e consistência" },
 ] as const;
 
 

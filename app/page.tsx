@@ -162,7 +162,7 @@ export default async function Page() {
       <Section id="recursos" title="Dentro da planilha">
         <div className="mb-6 grid md:grid-cols-2 gap-6">
           {FEATURES.map((f) => (
-            <FeatureCard key={f.key} title={f.title} desc={f.desc} image={f.key === "dashboard" || f.key === "menu" || f.key === "lancamentos" || f.key === "relatorios" || f.key === "graficos" || f.key === "tabelas" ? f.image : undefined} />
+              <FeatureCard key={f.key} title={f.title} desc={f.desc} image={f.image} altText={f.altText} />
           ))}
         </div>
       </Section>
