@@ -39,3 +39,10 @@ As variáveis estão mapeadas no `tailwind.config.js`. Exemplo: `text-primary`, 
 - Imagens informativas: `alt` deve descrever o conteúdo (ex: "Menu de Opções - Preview da funcionalidade")
 - Imagens decorativas: `alt=""`
 - O componente `FeatureCard` aceita `altText` opcional para personalização
+
+## Otimização de Imagens
+- Todas as imagens são servidas em WebP quando disponível (ganho > 55% de compressão)
+- Uso do componente `PictureImg` com `<picture>` para fallback JPG/PNG
+- Imagens abaixo da dobra possuem `loading="lazy"`
+- Imagens acima da dobra possuem `fetchPriority="high"`
+- Dimensões explícitas (`width`/`height`) definidas para evitar layout shift

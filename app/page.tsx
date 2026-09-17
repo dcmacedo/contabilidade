@@ -1,5 +1,4 @@
 
-import Image from "next/image";
 import { cookies } from "next/headers";
 import Section from "@/app/components/Section";
 import Badge from "@/app/components/Badge";
@@ -12,6 +11,7 @@ import { DashboardDemo } from "@/app/components/DashboardDemo";
 import LeadForm from "@/app/components/LeadForm";
 import ContactBlock from "@/app/components/ContactBlock";
 import { CountdownBanner } from "@/app/components/CountdownBanner";
+import PictureImg from "@/app/components/PictureImg";
 import FAQSection from "@/app/components/FAQSection";
 import ExperimentView from "@/app/components/ExperimentView";
 import { PRODUCT, BADGES, BENEFITS, FEATURES, FUTURE, TESTIMONIALS, PARTNER_SEALS, FAQ } from "@/lib/constants";
@@ -126,14 +126,13 @@ export default async function Page() {
           </div>
           <div className="relative">
             <div className="rounded-2xl border bg-white shadow-xl overflow-hidden">
-              <Image
+              <PictureImg
                 src="/Dashboard.jpg"
                 alt="Prévia do Dashboard da Planilha de Fluxo de Caixa Avançado"
-                className="w-full h-auto block"
                 width={1280}
                 height={720}
                 priority
-                sizes="(max-width: 768px) 100vw, 50vw"
+                className="w-full h-auto block"
               />
             </div>
           </div>

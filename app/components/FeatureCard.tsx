@@ -1,4 +1,4 @@
-import Image from "next/image";
+import PictureImg from "./PictureImg";
 import { Card } from "./Card";
 
 
@@ -16,13 +16,12 @@ export default function FeatureCard({ title, desc, image, altText }: FeatureCard
             <div className="text-lg font-semibold">{title}</div>
             <p className="mt-2 text-zinc-600">{desc}</p>
             {image && (
-                <Image
+                <PictureImg
                     src={image}
                     alt={altText || `${title} - Preview da funcionalidade`}
                     width={1200}
                     height={800}
-                    className="mt-4 w-full rounded-xl border"
-                    priority={title === "Dashboard"}
+                    className="mt-4 w-full h-auto rounded-xl border"
                 />
             )}
         </Card>
