@@ -128,7 +128,7 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
           onChange={handleChange("name")}
           aria-describedby={ok === false && !data.name ? "form-error-msg" : undefined}
           aria-invalid={ok === false && !data.name ? true : undefined}
-          className="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+          className="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           placeholder="Seu nome"
         />
       </div>
@@ -143,7 +143,7 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
           onChange={handleChange("email")}
           aria-describedby={ok === false && !data.email ? "form-error-msg" : undefined}
           aria-invalid={ok === false && !data.email ? true : undefined}
-          className="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+          className="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           placeholder="voce@email.com"
         />
       </div>
@@ -155,7 +155,7 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
           type="tel"
           value={data.phone}
           onChange={handleChange("phone")}
-          className="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+          className="mt-1 w-full rounded-xl border px-3 py-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
           placeholder="(xx) xxxxx-xxxx"
         />
       </div>
@@ -178,7 +178,7 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
           required
           checked={data.consent}
           onChange={handleChange("consent")}
-          className="mt-1 h-4 w-4 rounded border-zinc-300 text-emerald-600 focus:ring-emerald-600"
+          className="mt-1 h-4 w-4 rounded border-zinc-300 text-emerald-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
         />
         <label htmlFor="consent" className="text-xs text-zinc-600">
           Aceito receber materiais, conteúdos e comunicações. Li e concordo com a{" "}
@@ -194,7 +194,7 @@ export default function LeadForm({ source = "site" }: { source?: string }) {
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded-2xl bg-gradient-to-r from-emerald-600 to-sky-600 px-6 py-3 text-white font-semibold shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+        className="w-full rounded-2xl bg-gradient-to-r from-emerald-600 to-sky-600 px-6 py-3 text-white font-semibold shadow-lg hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
       >
         {loading ? "Enviando..." : "Quero receber materiais e novidades"}
       </button>
