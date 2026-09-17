@@ -20,11 +20,11 @@ type CTAButtonProps = {
 
 
 const base =
-    "rounded-2xl px-6 py-3 text-base font-semibold shadow-lg transition focus:outline-none focus:ring-2 focus:ring-offset-2";
+    "rounded-2xl px-6 py-3 text-base font-semibold shadow-lg transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2";
 const variants = {
-    primary: "bg-gradient-to-r from-emerald-600 to-sky-600 text-white hover:opacity-90 focus:ring-emerald-600",
-    inverse: "bg-white text-emerald-700 hover:opacity-90 focus:ring-emerald-600",
-    dark: "bg-zinc-900 text-white hover:opacity-90 focus:ring-zinc-900",
+    primary: "bg-gradient-to-r from-emerald-600 to-sky-600 text-white hover:opacity-90 focus-visible:ring-emerald-600",
+    inverse: "bg-white text-emerald-700 hover:opacity-90 focus-visible:ring-emerald-600",
+    dark: "bg-zinc-900 text-white hover:opacity-90 focus-visible:ring-zinc-900",
 } as const;
 
 

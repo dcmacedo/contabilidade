@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import { Montserrat, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -28,6 +28,11 @@ const geistMono = Geist_Mono({
  * Compatível com App Router
  */
 const siteUrl = publicEnv.NEXT_PUBLIC_SITE_URL;
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -87,14 +92,17 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${montserrat.variable} ${geistMono.variable} antialiased`}
       >
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-black focus:px-4 focus:py-2 focus:rounded">
+          Pular para conteúdo principal
+        </a>
         <Suspense fallback={null}>
           <GoogleAnalytics />
         </Suspense>
-        {children}
+        <main id="main-content">{children}</main>
         <Analytics />
         <SpeedInsights />
         <ConsentBanner />

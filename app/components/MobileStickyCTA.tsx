@@ -54,13 +54,13 @@ export function MobileStickyCTA() {
           </svg>
         </button>
       </div>
-      <a
-        href={`${PRODUCT.checkout.offer}?utm_source=site&utm_medium=mobile_sticky_cta&utm_campaign=launch_offer_v3`}
+      <button
+        type="button"
+        onClick={() => window.location.href = `${PRODUCT.checkout.offer}?utm_source=site&utm_medium=mobile_sticky_cta&utm_campaign=launch_offer_v3`}
         className="block w-full bg-gradient-to-r from-emerald-600 to-sky-600 text-white text-center py-3 font-semibold text-base shadow-lg hover:opacity-90 transition"
-        role="button"
       >
         Quero minha planilha agora
-      </a>
+      </button>
     </div>
   );
 }

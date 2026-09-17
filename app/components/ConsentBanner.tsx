@@ -83,13 +83,13 @@ export default function ConsentBanner() {
           <div className="flex flex-wrap gap-2">
             <button
               onClick={reject}
-              className="rounded-xl border px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+              className="rounded-xl border px-4 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
             >
               Recusar
             </button>
             <button
               onClick={accept}
-              className="rounded-xl bg-gradient-to-r from-emerald-600 to-sky-600 px-4 py-2 text-sm font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-emerald-600"
+              className="rounded-xl bg-gradient-to-r from-emerald-600 to-sky-600 px-4 py-2 text-sm font-medium text-white hover:opacity-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
             >
               Aceitar
             </button>
