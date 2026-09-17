@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type PictureImgProps = {
   src: string;
   alt: string;
@@ -8,19 +10,15 @@ type PictureImgProps = {
 };
 
 export default function PictureImg({ src, alt, width, height, priority, className }: PictureImgProps) {
-  const webp = src.replace(/\.(jpe?g|png)$/i, ".webp");
   return (
-    <picture>
-      <source type="image/webp" srcSet={webp} />
-      <img
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        loading={priority ? "eager" : "lazy"}
-        fetchPriority={priority ? "high" : "auto"}
-        className={className}
-      />
-    </picture>
+    <Image
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      priority={priority}
+      className={className}
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+    />
   );
 }
